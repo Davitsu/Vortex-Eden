@@ -6,11 +6,17 @@ using UnityEngine.EventSystems;		//IsPointerOverGameObject-> comprueba si un inp
 
 public class pickDrop : MonoBehaviour {
 
+	//botones
 	public Button botonCubo;
 	public Button botonEsfera;
+	
+	//visual
 	public GameObject iconSelec;
 	public GameObject cruz;
 	public GridScript grid;
+	
+	//enemigos
+	public GameObject ShooterDronePrefab;
 	
 	private int objSeleccionado;
 	private Image miniaturaDrag;
@@ -50,10 +56,10 @@ public class pickDrop : MonoBehaviour {
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
 					{
-						Debug.Log(box.GetComponent<BoxScript>().id);
 						#if DEVELOPMENT_BUILD
 						boxId.text= "Box: " + box.GetComponent<BoxScript>().id.ToString();
 						#endif
+						crearObjecto(objSeleccionado, box);
 					}
 					else
 					{
@@ -125,15 +131,19 @@ public class pickDrop : MonoBehaviour {
 		return(null);
 	}
 	
-	void crearObjecto(int type, Vector3 pos)
+	void crearObjecto(int type, GameObject box)
 	{	
-		if (type == 0) 
+		if(!box.GetComponent<BoxScript>().taken)
 		{
-			Debug.Log ("COLOCAR CUBO");
-		} 
-		else if (type == 1) 
-		{
-			Debug.Log ("COLOCAR ESFERA");
+			if (type == 0) 
+			{
+				Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+			} 
+			else if (type == 1) 
+			{
+				
+			}
+			box.GetComponent<BoxScript>().taken= true;
 		}
 	}
 
