@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;				//clase Toggle
+using UnityEngine.UI;				//clase button
 using UnityEngine.EventSystems;		//IsPointerOverGameObject-> comprueba si un input esta encima de otroGame object
 
 
@@ -38,7 +38,7 @@ public class pickDrop : MonoBehaviour {
 	{
 		if(Input.touchCount > 0)
 		{
-			if(Input.touches[0].position.x > 97 && objSeleccionado!= -1)	//posicion en coordenadas de world
+			if(Input.touches[0].position.x > Screen.width*0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
 			{
 				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
 				{
