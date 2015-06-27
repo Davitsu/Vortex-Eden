@@ -21,10 +21,14 @@ public class pickDrop : MonoBehaviour {
 	private int objSeleccionado;
 	private Image miniaturaDrag;
 	
+	//gestos
+	Vector2 posIni;
+	//bool swipeIn= false;
+	
 	//DEVELOPEMENT_BUILD
 	public Text inputPos;
 	public Text	textoSelec;
-	public Text boxId;
+	public Text labelGestos;
 	
 	void Awake(){
 		Input.multiTouchEnabled = false;
@@ -36,7 +40,7 @@ public class pickDrop : MonoBehaviour {
 		#if DEVELOPMENT_BUILD
 		inputPos.gameObject.SetActive(true);
 		textoSelec.gameObject.SetActive(true);
-		boxId.gameObject.SetActive(true);
+		labelGestos.gameObject.SetActive(true);
 		#endif
 	}
 
@@ -44,7 +48,7 @@ public class pickDrop : MonoBehaviour {
 	{
 		if(Input.touchCount > 0)
 		{
-			if(Input.touches[0].position.x > Screen.width*0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
+			if(Input.touches[0].position.x > Screen.width * 0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
 			{
 				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
 				{
@@ -55,17 +59,8 @@ public class pickDrop : MonoBehaviour {
 				{
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
-					{
-						#if DEVELOPMENT_BUILD
-						boxId.text= "Box: " + box.GetComponent<BoxScript>().id.ToString();
-						#endif
+					{						
 						crearObjecto(objSeleccionado, box);
-					}
-					else
-					{
-						#if DEVELOPMENT_BUILD
-						boxId.text= "Box: null";
-						#endif
 					}
 					//crearObjecto(objSeleccionado, Input.touches[0].position);
 					cruz.SetActive(false);
@@ -77,6 +72,28 @@ public class pickDrop : MonoBehaviour {
 				inputPos.text= Input.touches[0].position.x.ToString() + " , " + Input.touches[0].position.y.ToString();
 				#endif
 			}
+			//gestual
+			/*else if(objSeleccionado== -1)
+			{
+				if(Input.touches[0].phase == TouchPhase.Began)
+				{
+					posIni= Input.touches[0].position;
+				}
+				else if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
+				{
+					Vector2 posFin= Input.touches[0].position;
+					
+					if(posIni.x > posFin.x && Vector2.Distance(posIni, posFin) >= Screen.width / 5f )
+					{
+						swipeIn= true;
+					}
+				}
+				else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+				{
+					swipeIn= false;
+				}
+				labelGestos.text= "SWIPE " + swipeIn.ToString();
+			}*/
 			else
 			{
 				cruz.SetActive(false);
