@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eff6d6cc715fb7d45a1c2e1b28aa45f3
-timeCreated: 1435435632
+timeCreated: 1435436813
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -36,6 +36,7 @@ TextureImporter:
     21300058: canon_02
     21300060: canon_03
     21300062: canon_04
+    21300064: hud_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -398,6 +399,16 @@ TextureImporter:
         y: 292
         width: 32
         height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hud_0
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 469
+        width: 44
+        height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
