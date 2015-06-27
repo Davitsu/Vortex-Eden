@@ -10,32 +10,41 @@ public class LaserBehavior : MonoBehaviour {
 	int lane;
 	Vector2 destiny;
 	bool hasLane=false;
+	GridScript grid;
 
 	// Use this for initialization
 	void Start () {
+		destiny.x = 120;
+		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (hasLane) {
-			if (transform.position.y > Camera.main.ScreenToWorldPoint (new Vector2 (0, Screen.height - 70)).y) {
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, -speed * Time.deltaTime));
-			} else if (transform.position.y < Camera.main.ScreenToWorldPoint (new Vector2 (0, 70)).y) {
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, speed * Time.deltaTime));
-			} else if (transform.position.x < 100) {
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (speed * Time.deltaTime, 0));
-			} else if (transform.position.x > 180) {
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-speed * Time.deltaTime, 0));
+			Vector2 pos= transform.position;
+			Vector2 dif= pos-destiny;
+			if (dif.magnitude>0.1f){
+				GetComponent<Rigidbody2D>().AddForce(-dif.normalized*speed*Time.deltaTime);
 			} else {
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
+
 				counter -= Time.deltaTime;
 				if (counter <= 0) {
 					Instantiate (bullet).transform.position = transform.position;
 					counter = shootDelay;
 				}
-
+			}
+		} else {
+			lane=Random.Range(0, 6);
+			if(grid.laneAvailable[lane]){
+				grid.laneAvailable[lane]=false;
+				destiny.y=grid.lanes[lane];
+				hasLane=true;
 			}
 		}
 
+	}
+
+	void OnDestroy() {
+		grid.laneAvailable[lane]=true;
 	}
 }

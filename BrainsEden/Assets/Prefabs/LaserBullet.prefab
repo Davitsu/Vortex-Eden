@@ -15,7 +15,7 @@ GameObject:
   - 50: {fileID: 5021366}
   - 114: {fileID: 11440236}
   m_Layer: 11
-  m_Name: ShootaBullet
+  m_Name: LaserBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

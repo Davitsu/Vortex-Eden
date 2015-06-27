@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Boton
   - ImagBotonActiv
+  - Grid
   layers:
   - Default
   - TransparentFX
