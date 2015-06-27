@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Drone
   - Enemy
+  - Boton
+  - ImagBotonActiv
   - Grid
   layers:
   - Default

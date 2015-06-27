@@ -7,11 +7,18 @@ using UnityEngine.EventSystems;		//IsPointerOverGameObject-> comprueba si un inp
 public class pickDrop : MonoBehaviour {
 
 	//botones
-	public Button botonCubo;
-	public Button botonEsfera;
+	public Button botonPlaca;
+	public Image botImgPlaca;
+	public Button botonBotiquin;
+	public Image botImgBotiq;
+	public Button botonEspejo;
+	public Image botImgEspejo;
+	public Button botonMina;
+	public Image botImgMina;
+	public Button botonShooter;
+	public Image botImgShooter;
 	
 	//visual
-	public GameObject iconSelec;
 	public GameObject cruz;
 	public GridScript grid;
 	
@@ -24,11 +31,7 @@ public class pickDrop : MonoBehaviour {
 	//gestos
 	Vector2 posIni;
 	//bool swipeIn= false;
-	
-	//DEVELOPEMENT_BUILD
-	public Text inputPos;
-	public Text	textoSelec;
-	public Text labelGestos;
+
 	
 	void Awake(){
 		Input.multiTouchEnabled = false;
@@ -37,11 +40,6 @@ public class pickDrop : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objSeleccionado= -1;
-		#if DEVELOPMENT_BUILD
-		inputPos.gameObject.SetActive(true);
-		textoSelec.gameObject.SetActive(true);
-		labelGestos.gameObject.SetActive(true);
-		#endif
 	}
 
 	void Update()
@@ -64,13 +62,10 @@ public class pickDrop : MonoBehaviour {
 					}
 					//crearObjecto(objSeleccionado, Input.touches[0].position);
 					cruz.SetActive(false);
-					iconSelec.SetActive(false);
 					grid.DisableBoxes();
 					objSeleccionado= -1;
+					BorrarSeleccion();
 				}
-				#if DEVELOPMENT_BUILD
-				inputPos.text= Input.touches[0].position.x.ToString() + " , " + Input.touches[0].position.y.ToString();
-				#endif
 			}
 			//gestual
 			/*else if(objSeleccionado== -1)
@@ -97,28 +92,12 @@ public class pickDrop : MonoBehaviour {
 			else
 			{
 				cruz.SetActive(false);
-				#if DEVELOPMENT_BUILD
-				inputPos.text= "N/A";
-				#endif
 			}
 		}
 		else
 		{
 			cruz.SetActive(false);
-			#if DEVELOPMENT_BUILD
-			inputPos.text= "N/A";
-			#endif
 		}
-		#if DEVELOPMENT_BUILD
-		if(objSeleccionado == -1)
-		{
-			textoSelec.text="Seleccion: N/A";
-		}
-		else
-		{
-			textoSelec.text="Seleccion: " + objSeleccionado;
-		}
-		#endif
 	}
 	
 
@@ -147,12 +126,24 @@ public class pickDrop : MonoBehaviour {
 	{	
 		if(!box.GetComponent<BoxScript>().taken)
 		{
-			if (type == 0) 
+			if (type == 0) //placa
 			{
 				GameObject nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
 				nuevoEnemigo.GetComponent<ShooterDrone>().boxPosition= box;
 			} 
-			else if (type == 1) 
+			else if (type == 1)	//botiquin
+			{
+				
+			}
+			else if (type == 2) //espejo
+			{
+				
+			}
+			else if (type == 3) //mina
+			{
+				
+			}
+			else if (type == 4) //cañon
 			{
 				
 			}
@@ -160,17 +151,21 @@ public class pickDrop : MonoBehaviour {
 		}
 	}
 
-	void OnclickIzq()
+	void BorrarSeleccion()
 	{
-		Debug.Log(Time.realtimeSinceStartup + "-> PANTALLA:" + Input.mousePosition);
-		Debug.Log(Time.realtimeSinceStartup + "-> MUNDO REAL:" + Camera.main.ScreenToWorldPoint(Input.mousePosition) + "\n==============");
-		ComprobarBox(Input.mousePosition);
+		GameObject[]imagenes= GameObject.FindGameObjectsWithTag("ImagBotonActiv");
+		
+		foreach(GameObject image in imagenes){
+			image.gameObject.SetActive(false);
+		}
 	}
 	#endregion
 
 	#region funciones publicas
 	public void BotonApretado(int objNum)
-	{
+	{	
+		BorrarSeleccion();
+		
 		//seleccion boton
 		if(objSeleccionado == objNum)
 		{
@@ -183,22 +178,28 @@ public class pickDrop : MonoBehaviour {
 			grid.EnableFreeBoxes();
 		}
 		
-		//icono de seleccion
 		if(objSeleccionado!= -1)
 		{
-			if(objSeleccionado== 0)
+			if(objSeleccionado== 0)	//placa
 			{
-				iconSelec.transform.position= botonCubo.gameObject.transform.position;
+				botImgPlaca.gameObject.SetActive(true);
 			}
-			else if (objSeleccionado== 1)
+			else if (objSeleccionado== 1)	//botiquin
 			{
-				iconSelec.transform.position= botonEsfera.gameObject.transform.position;
+				botImgBotiq.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 2)	//espejo
+			{
+				botImgEspejo.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 3)	//mina
+			{
+				botImgMina.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 4)	//cañon
+			{
+				botImgShooter.gameObject.SetActive(true);
 			}	
-			iconSelec.SetActive(true);
-		}
-		else
-		{
-			iconSelec.SetActive(false);
 		}
 	}
 	#endregion
