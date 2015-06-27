@@ -13,7 +13,8 @@ public class GridScript : MonoBehaviour {
 	private GameObject[] boxes;
 
 	public Rect enemyArea;
-	public float[] lains;
+	public float[] lanes;
+	public bool[] laneAvailable;
 
 //	public BoxScript boxScript;
 
@@ -32,7 +33,8 @@ public class GridScript : MonoBehaviour {
 		float boxWidth = (worldWidth * width) / columns;
 		float boxHeight = (worldHeight * height) / rows;
 
-		lains = new float[rows];
+		lanes = new float[rows];
+		laneAvailable = new bool[rows];
 
 		Vector3 worldBottomLeft = new Vector3(-worldWidth / 2 + boxWidth/2, -worldHeight/2 + boxHeight/2, 0);
 
@@ -49,8 +51,10 @@ public class GridScript : MonoBehaviour {
 				BoxScript boxScript = box.GetComponent<BoxScript>();
 				boxScript.Generate(counter, boxWidth, boxHeight);
 				counter++;
-				if(i == 0)
-					lains[j] = (worldBottomLeft + new Vector3(i*boxWidth+left, j*boxHeight+bottom, 0)).y;
+				if(i == 0){
+					lanes[j] = (worldBottomLeft + new Vector3(i*boxWidth+left, j*boxHeight+bottom, 0)).y;
+					laneAvailable[j]= true;
+				}
 			}
 		}
 	}
