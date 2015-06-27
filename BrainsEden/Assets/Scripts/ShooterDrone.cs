@@ -6,37 +6,32 @@ public class ShooterDrone : MonoBehaviour {
 	public GameObject balaPrefab;
 	
 	public GameObject boxPosition;
+	public caracteristicaDrone datos;
+
 	
-	public float vida = 10;
-	
-	public float disparaCada= 0.75f;
+	public float disparaCada;
 	float contadorDisparo= 0f;
 	
 	// Update is called once per frame
 	void Update () 
 	{	
-		//control disparo
-		contadorDisparo+= Time.deltaTime;
-		
-		if(contadorDisparo >= disparaCada){
-			StartCoroutine(Rafaga ());
-			contadorDisparo= 0f;
+		if(!datos.pausado)
+		{
+			//control disparo
+			contadorDisparo+= Time.deltaTime;
+			
+			if(contadorDisparo >= disparaCada)
+			{
+				Disparo();
+				contadorDisparo= 0f;
+			}
 		}
 		
 		//control vida
-		if(vida <= 0f)
+		if(datos.vida <= 0f)
 		{
-			Destroy(this.gameObject);
 			boxPosition.GetComponent<BoxScript>().taken= false;
-		}
-	}
-	
-	IEnumerator Rafaga()
-	{
-		for(int i=0; i < 3; i++)
-		{
-			Instantiate(balaPrefab, this.gameObject.transform.position, Quaternion.identity);
-			yield return new WaitForSeconds(0.15f);
+			Destroy(this.gameObject);
 		}
 	}
 	
