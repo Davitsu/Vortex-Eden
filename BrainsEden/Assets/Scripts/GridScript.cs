@@ -12,6 +12,8 @@ public class GridScript : MonoBehaviour {
 	public GameObject tilePrefab;
 	private GameObject[] boxes = new GameObject[42];
 
+	public Rect enemyArea;
+
 //	public BoxScript boxScript;
 
 	// Use this for initialization
@@ -30,6 +32,8 @@ public class GridScript : MonoBehaviour {
 		float boxHeight = (worldHeight * height) / rows;
 
 		Vector3 worldBottomLeft = new Vector3(-worldWidth / 2 + boxWidth/2, -worldHeight/2 + boxHeight/2, 0);
+
+		enemyArea = new Rect(worldBottomLeft.x+left+width*worldWidth, worldBottomLeft.y + bottom, worldWidth-width*worldWidth-left, worldHeight*height);
 
 //		Vector2 upperLeftCorner = new Vector2 (-screenWidth / 2, -screenHeight / 2);
 		int counter = 0;
