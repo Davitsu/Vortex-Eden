@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6162640}
   - 212: {fileID: 21294288}
   m_Layer: 11
-  m_Name: Bullet
+  m_Name: Bala
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   direction: {x: 0, y: 0}
-  wiggleWidth: .100000001
-  wiggleFreq: 20
+  wiggleWidth: 0
+  wiggleFreq: 0
 --- !u!212 &21294288
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -90,7 +90,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: wiggleWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wiggleFreq
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188926}

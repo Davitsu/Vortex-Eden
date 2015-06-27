@@ -40,7 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddeeafc6860583e418c4dffee3bb895b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  balaPrefab: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
+  vida: 10
+  disparaCada: .75
 --- !u!212 &21238510
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -73,7 +75,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: balaPrefab
+      value: 
+      objectReference: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188708}
