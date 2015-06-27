@@ -10,15 +10,16 @@ public class GridScript : MonoBehaviour {
 	public float width = 1;	//de 0 a 1
 	public float height = 1;
 	public GameObject tilePrefab;
-	private GameObject[] boxes = new GameObject[42];
+	private GameObject[] boxes;
 
 	public Rect enemyArea;
+	public float[] lains;
 
 //	public BoxScript boxScript;
 
 	// Use this for initialization
 	void Start () {
-
+		boxes = new GameObject[columns*rows];
 		if (width > 1)
 			width = 1;
 		if (height > 1)
@@ -30,6 +31,8 @@ public class GridScript : MonoBehaviour {
 //		int numberOfBoxes = columns * rows;
 		float boxWidth = (worldWidth * width) / columns;
 		float boxHeight = (worldHeight * height) / rows;
+
+		lains = new float[rows];
 
 		Vector3 worldBottomLeft = new Vector3(-worldWidth / 2 + boxWidth/2, -worldHeight/2 + boxHeight/2, 0);
 
@@ -46,6 +49,8 @@ public class GridScript : MonoBehaviour {
 				BoxScript boxScript = box.GetComponent<BoxScript>();
 				boxScript.Generate(counter, boxWidth, boxHeight);
 				counter++;
+				if(i == 0)
+					lains[j] = (worldBottomLeft + new Vector3(i*boxWidth+left, j*boxHeight+bottom, 0)).y;
 			}
 		}
 	}
@@ -55,6 +60,7 @@ public class GridScript : MonoBehaviour {
 		
 	}
 	#region funciones publicas
+
 	public void EnableFreeBoxes()
 	{
 		foreach(GameObject box in boxes)
