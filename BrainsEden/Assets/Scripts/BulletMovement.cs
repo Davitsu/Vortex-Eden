@@ -13,7 +13,6 @@ public class BulletMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timeCreated = Time.time;
-		direction = Vector2.right;
 	}
 	
 	// Update is called once per frame
