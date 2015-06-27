@@ -11,7 +11,6 @@ public class BotonController : MonoBehaviour {
 	float cuentaAtras;
 	
 	public Button boton;
-	public Image botonImaEncendido;
 	
 	void update()
 	{
@@ -33,7 +32,6 @@ public class BotonController : MonoBehaviour {
 	{
 		cuentaAtras= tRecarga;
 		boton.interactable= false;
-		botonImaEncendido.enabled= false;
 	}
 	
 }
