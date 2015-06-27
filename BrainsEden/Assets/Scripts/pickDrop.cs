@@ -146,7 +146,7 @@ public class pickDrop : MonoBehaviour {
 		else
 		{
 			cruz.SetActive(false);
-			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
+			//Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
 		}
 	}
 	

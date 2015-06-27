@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Bullet
+  - Enemy
+  - Drone
   - Box
+  - Grid
+  - ImagBotonActiv
   layers:
   - Default
   - TransparentFX
