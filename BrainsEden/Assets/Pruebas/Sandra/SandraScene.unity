@@ -1049,7 +1049,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: d6c94a069c0e66146ab789ccb5112bdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &910791017
@@ -1353,15 +1353,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01987866c3c3bc4aaa53ae7fcd91a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botonCubo: {fileID: 1590875313}
-  botonEsfera: {fileID: 696015257}
-  iconSelec: {fileID: 0}
+  botonPlaca: {fileID: 0}
+  botImgPlaca: {fileID: 0}
+  botonBotiquin: {fileID: 0}
+  botImgBotiq: {fileID: 0}
+  botonEspejo: {fileID: 0}
+  botImgEspejo: {fileID: 0}
+  botonMina: {fileID: 0}
+  botImgMina: {fileID: 0}
+  botonShooter: {fileID: 0}
+  botImgShooter: {fileID: 0}
   cruz: {fileID: 1063586674}
   grid: {fileID: 76492706}
   ShooterDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
-  inputPos: {fileID: 841733613}
-  textoSelec: {fileID: 970469070}
-  labelGestos: {fileID: 0}
 --- !u!4 &1422017432
 Transform:
   m_ObjectHideFlags: 0
@@ -1874,7 +1878,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300004, guid: d6c94a069c0e66146ab789ccb5112bdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1870486115
@@ -2014,7 +2018,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: d6c94a069c0e66146ab789ccb5112bdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2069930971
@@ -2157,6 +2161,6 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300004, guid: d6c94a069c0e66146ab789ccb5112bdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
