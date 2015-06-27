@@ -15,7 +15,7 @@ public class BotonController : MonoBehaviour {
 	
 	void update()
 	{
-		if(!boton.enabled)
+		if(!boton.interactable)
 		{
 			if(cuentaAtras > 0f)
 				cuentaAtras-= Time.deltaTime;
@@ -23,7 +23,7 @@ public class BotonController : MonoBehaviour {
 			{
 				if(datos.energia >= precio)
 				{
-					boton.enabled= true;
+					boton.interactable= true;
 				}
 			}
 		}	
@@ -32,7 +32,7 @@ public class BotonController : MonoBehaviour {
 	public void Activacion()
 	{
 		cuentaAtras= tRecarga;
-		boton.enabled= false;
+		boton.interactable= false;
 		botonImaEncendido.enabled= false;
 	}
 	

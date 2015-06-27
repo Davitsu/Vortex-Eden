@@ -32,7 +32,6 @@ public class pickDrop : MonoBehaviour {
 	Vector2 posIni;
 	//bool swipeIn= false;
 
-	
 	void Awake(){
 		Input.multiTouchEnabled = false;
 	}
@@ -60,7 +59,6 @@ public class pickDrop : MonoBehaviour {
 					{						
 						crearObjecto(objSeleccionado, box);
 					}
-					//crearObjecto(objSeleccionado, Input.touches[0].position);
 					cruz.SetActive(false);
 					grid.DisableBoxes();
 					objSeleccionado= -1;
@@ -130,6 +128,7 @@ public class pickDrop : MonoBehaviour {
 			{
 				GameObject nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
 				nuevoEnemigo.GetComponent<ShooterDrone>().boxPosition= box;
+				botonPlaca.GetComponent<BotonController>().Activacion();
 			} 
 			else if (type == 1)	//botiquin
 			{
@@ -164,42 +163,46 @@ public class pickDrop : MonoBehaviour {
 	#region funciones publicas
 	public void BotonApretado(int objNum)
 	{	
-		BorrarSeleccion();
-		
-		//seleccion boton
-		if(objSeleccionado == objNum)
-		{
-			objSeleccionado= -1	;
-			grid.DisableBoxes();
-		}
-		else
-		{
-			objSeleccionado= objNum;
-			grid.EnableFreeBoxes();
-		}
-		
-		if(objSeleccionado!= -1)
-		{
-			if(objSeleccionado== 0)	//placa
-			{
-				botImgPlaca.gameObject.SetActive(true);
+		if(this.gameObject.tag != "ImagBotonActiv"){
+			if(!this.gameObject.GetComponent<Button>().interactable){
+				BorrarSeleccion();
+				
+				//seleccion boton
+				if(objSeleccionado == objNum)
+				{
+					objSeleccionado= -1	;
+					grid.DisableBoxes();
+				}
+				else
+				{
+					objSeleccionado= objNum;
+					grid.EnableFreeBoxes();
+				}
+				
+				if(objSeleccionado!= -1)
+				{
+					if(objSeleccionado== 0)	//placa
+					{
+						botImgPlaca.gameObject.SetActive(true);
+					}
+					else if (objSeleccionado== 1)	//botiquin
+					{
+						botImgBotiq.gameObject.SetActive(true);
+					}
+					else if (objSeleccionado== 2)	//espejo
+					{
+						botImgEspejo.gameObject.SetActive(true);
+					}
+					else if (objSeleccionado== 3)	//mina
+					{
+						botImgMina.gameObject.SetActive(true);
+					}
+					else if (objSeleccionado== 4)	//cañon
+					{
+						botImgShooter.gameObject.SetActive(true);
+					}	
+				}
 			}
-			else if (objSeleccionado== 1)	//botiquin
-			{
-				botImgBotiq.gameObject.SetActive(true);
-			}
-			else if (objSeleccionado== 2)	//espejo
-			{
-				botImgEspejo.gameObject.SetActive(true);
-			}
-			else if (objSeleccionado== 3)	//mina
-			{
-				botImgMina.gameObject.SetActive(true);
-			}
-			else if (objSeleccionado== 4)	//cañon
-			{
-				botImgShooter.gameObject.SetActive(true);
-			}	
 		}
 	}
 	#endregion
