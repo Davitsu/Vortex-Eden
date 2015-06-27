@@ -164,6 +164,8 @@ public class pickDrop : MonoBehaviour {
 	#region funciones publicas
 	public void BotonApretado(int objNum)
 	{	
+		BorrarSeleccion();
+		
 		//seleccion boton
 		if(objSeleccionado == objNum)
 		{
@@ -199,10 +201,6 @@ public class pickDrop : MonoBehaviour {
 				botImgShooter.gameObject.SetActive(true);
 			}	
 		}
-		else{
-			BorrarSeleccion();
-		}
-		Debug.Log (objSeleccionado);
 	}
 	#endregion
 }

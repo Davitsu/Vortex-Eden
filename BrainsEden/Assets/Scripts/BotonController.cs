@@ -9,7 +9,9 @@ public class BotonController : MonoBehaviour {
 	public int precio;
 	public float tRecarga;
 	float cuentaAtras;
+	
 	public Button boton;
+	public Image botonImaEncendido;
 	
 	void update()
 	{
@@ -31,6 +33,7 @@ public class BotonController : MonoBehaviour {
 	{
 		cuentaAtras= tRecarga;
 		boton.enabled= false;
+		botonImaEncendido.enabled= false;
 	}
 	
 }
