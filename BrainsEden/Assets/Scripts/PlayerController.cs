@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	Vector2 lastClickedPosition= new Vector2(0, Screen.height/2);
 	public float moveSpeed=500.0f;
 	public GameObject playerBullet;
-	public float shootingSpeed=40.0f;
+	public float shootingSpeed=5.0f;
 	float counter;
 
 	// Use this for initialization

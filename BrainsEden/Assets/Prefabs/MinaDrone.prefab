@@ -1,69 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &188708
+--- !u!1 &144178
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 455006}
-  - 114: {fileID: 11480512}
-  - 114: {fileID: 11412418}
-  - 212: {fileID: 21238510}
+  - 4: {fileID: 411466}
+  - 114: {fileID: 11418642}
+  - 114: {fileID: 11421968}
+  - 212: {fileID: 21281286}
   m_Layer: 0
-  m_Name: ShooterDrone
+  m_Name: MinaDrone
   m_TagString: Drone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &455006
+--- !u!4 &411466
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 144178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalPosition: {x: 341.5, y: 192, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11412418
+--- !u!114 &11418642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 144178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8253f68f4666eb74c94c566b65b2d3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxPosition: {fileID: 0}
+  datos: {fileID: 11421968}
+  explosion: {fileID: 117910, guid: 1835a151cec0e934e86b242dcf800019, type: 2}
+--- !u!114 &11421968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144178}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ee821c49ee47534eb15ee49f6728ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
+  vida: 5
   pausado: 0
---- !u!114 &11480512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddeeafc6860583e418c4dffee3bb895b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balaPrefab: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-  boxPosition: {fileID: 0}
-  datos: {fileID: 11412418}
-  disparaCada: .5
---- !u!212 &21238510
+--- !u!212 &21281286
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 144178}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 481fd2c6d33352a4cae833bd6c77659b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0da7c51493c443b4dbd838f38d55728b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -92,26 +91,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: balaPrefab
-      value: 
-      objectReference: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-    - target: {fileID: 0}
-      propertyPath: datos
-      value: 
-      objectReference: {fileID: 11412418}
-    - target: {fileID: 0}
-      propertyPath: vida
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
       propertyPath: m_TagString
       value: Drone
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: disparaCada
-      value: .5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 188708}
+  m_RootGameObject: {fileID: 144178}
   m_IsPrefabParent: 1
