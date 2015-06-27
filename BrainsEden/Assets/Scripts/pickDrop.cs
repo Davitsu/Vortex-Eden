@@ -132,7 +132,8 @@ public class pickDrop : MonoBehaviour {
 		{
 			if (type == 0) 
 			{
-				Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+				GameObject nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.GetComponent<ShooterDrone>().boxPosition= box;
 			} 
 			else if (type == 1) 
 			{

@@ -5,6 +5,8 @@ public class ShooterDrone : MonoBehaviour {
 
 	public GameObject balaPrefab;
 	
+	public GameObject boxPosition;
+	
 	public float vida = 10;
 	
 	public float disparaCada= 0.75f;
@@ -23,7 +25,10 @@ public class ShooterDrone : MonoBehaviour {
 		
 		//control vida
 		if(vida <= 0f)
+		{
 			Destroy(this.gameObject);
+			boxPosition.GetComponent<BoxScript>().taken= false;
+		}
 	}
 	
 	IEnumerator Rafaga()
