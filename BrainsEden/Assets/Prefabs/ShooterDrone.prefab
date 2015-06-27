@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11480512}
   - 114: {fileID: 11412418}
   - 212: {fileID: 21238510}
+  - 61: {fileID: 6110954}
   m_Layer: 0
   m_Name: ShooterDrone
   m_TagString: Drone
@@ -30,6 +31,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6110954
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188708}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 96, y: 96}
 --- !u!114 &11412418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,6 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 10
   pausado: 0
+  box: {fileID: 0}
 --- !u!114 &11480512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +70,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balaPrefab: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-  boxPosition: {fileID: 0}
   datos: {fileID: 11412418}
   disparaCada: .5
 --- !u!212 &21238510

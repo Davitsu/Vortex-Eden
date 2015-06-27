@@ -100,7 +100,7 @@ public class pickDrop : MonoBehaviour {
 			Vector3 position = Input.mousePosition;
 
 			//si pulsas en caja y tenias dron de tienda
-			if(position.x > Screen.width * 0.1f && (objSeleccionado != -1 && objSeleccionado != 2)){
+			if(position.x > Screen.width * 0.1f && (objSeleccionado != -1 && objSeleccionado != -2)){	//si tocas el grid con dron comprado
 				GameObject box = ComprobarBox(position);
 				if(box != null)
 				{
@@ -114,7 +114,7 @@ public class pickDrop : MonoBehaviour {
 
 				Debug.Log ("Pulsado con dron de tienda"+objSeleccionado);
 			}//si pulsas en caja y no tenias dron
-			else if(position.x > Screen.width * 0.1f && objSeleccionado == -1){
+			else if(position.x > Screen.width * 0.1f && objSeleccionado == -1){ //si no tienes dron y coges uno de grid
 				GameObject box = ComprobarBox(position);
 				if(box != null)
 				{
@@ -129,21 +129,23 @@ public class pickDrop : MonoBehaviour {
 				}
 				Debug.Log ("Pulsado sin dron cogido"+objSeleccionado);
 			}
-			else if(objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido
+			else if(position.x > Screen.width * 0.1f && objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido de grid
 				GameObject box = ComprobarBox(position);
 				if(box != null){
-					if(box.GetComponent<BoxScript>().dron != null){
-						box.GetComponent<BoxScript>().dron.SendMessage("SetBox", SelectedGridDrone.GetComponent<caracteristicaDrone>().box);
-						SelectedGridDrone.SendMessage("SetBox", box);
-						objSeleccionado = -1;
-					}
-					else{
-						SelectedGridDrone.SendMessage("SetBox", box);
-						objSeleccionado = -1;
-					}
-					cruz.SetActive(false);
 					grid.DisableBoxes();
+					cruz.SetActive(false);
 					BorrarSeleccion();
+
+					if(box.GetComponent<BoxScript>().dron != null){
+						GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
+						GameObject dronAReemplazar = box.GetComponent<BoxScript>().dron;
+						Debug.Log ("Dron a reemplazar, caja "+dronAReemplazar.GetComponent<caracteristicaDrone>().box.GetComponent<BoxScript>().id+" se cambia a");
+						dronAReemplazar.SendMessage("SetBox", boxDelDronAMover);
+					}
+					Debug.Log ("Dron que reemplaza, caja "+SelectedGridDrone.GetComponent<caracteristicaDrone>().box.GetComponent<BoxScript>().id+" se cambia a");
+					SelectedGridDrone.SendMessage("SetBox", box);
+					objSeleccionado = -1;
+					SelectedGridDrone = null;
 				}
 				Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
 			}
@@ -151,7 +153,7 @@ public class pickDrop : MonoBehaviour {
 		else
 		{
 			cruz.SetActive(false);
-			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
+//			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
 		}
 	}
 	
@@ -159,21 +161,20 @@ public class pickDrop : MonoBehaviour {
 	#region funciones privadas
 	GameObject ComprobarBox(Vector3 touchPosition)
 	{
-		Ray ray = Camera.main.ScreenPointToRay(touchPosition);
-//		Debug.Log(ray);
-		
-		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit))
-		{
-			if(hit.collider != null)
-			{
-				if(hit.collider.gameObject.tag.Equals("Box"))
-				{
-//					Debug.Log (hit.collider.gameObject.GetComponent<BoxScript>().id);
-					return(hit.collider.gameObject);
-				}
+		Vector3 point = Camera.main.ScreenToWorldPoint (touchPosition);
+		//		Debug.Log(ray);
+
+		Collider2D hit = Physics2D.OverlapPoint(new Vector2(point.x, point.y));
+
+		if (hit != null) {
+			if (hit.gameObject.tag.Equals ("Box")) {
+				return(hit.gameObject);
 			}
-		}
+			else if (hit.gameObject.tag.Equals ("Drone")){
+				return(hit.gameObject.GetComponent<caracteristicaDrone> ().box);
+			}
+
+		} 
 		return(null);
 	}
 	
@@ -185,7 +186,6 @@ public class pickDrop : MonoBehaviour {
 			if (type == 0) 
 			{
 				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
-				nuevoEnemigo.SendMessage("SetBox", box);
 			} 
 			else if (type == 1)	//botiquin
 			{
@@ -203,8 +203,8 @@ public class pickDrop : MonoBehaviour {
 			{
 
 			}
-
-//			box.SendMessage("SetDrone", nuevoEnemigo);
+			
+			nuevoEnemigo.SendMessage("SetBox", box);
 		}
 	}
 

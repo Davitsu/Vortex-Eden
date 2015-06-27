@@ -12,7 +12,7 @@ public class ShooterDrone : MonoBehaviour {
 
 	void goToBox(){
 		if (datos.box != null)
-			transform.position = Vector2.MoveTowards (this.transform.position, datos.box.transform.position, 500*Time.deltaTime);
+			transform.position = Vector2.MoveTowards (this.transform.position, datos.box.transform.position, 300*Time.deltaTime);
 	}
 
 	public void SetBox(GameObject box){
@@ -21,6 +21,7 @@ public class ShooterDrone : MonoBehaviour {
 		datos.box = box;
 		box.GetComponent<BoxScript>().taken = true;
 		box.GetComponent<BoxScript> ().SetDrone (this.gameObject);
+		Debug.Log ("caja " + box.GetComponent<BoxScript> ().id);
 	}
 
 	public GameObject GetBox(){
@@ -52,6 +53,6 @@ public class ShooterDrone : MonoBehaviour {
 	}
 	
 	void Disparo(){
-		Instantiate(balaPrefab, this.gameObject.transform.position, Quaternion.identity);
+	//	Instantiate(balaPrefab, this.gameObject.transform.position, Quaternion.identity);
 	}
 }
