@@ -102,11 +102,6 @@ public class pickDrop : MonoBehaviour {
 			textoSelec.text="Seleccion: " + objSeleccionado;
 		}
 		#endif
-		/*if(Input.GetMouseButtonUp(0))
-		{
-			Debug.Log("CLICK");
-			OnclickIzq();
-		}*/
 	}
 	
 
