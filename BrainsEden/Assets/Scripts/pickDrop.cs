@@ -16,11 +16,12 @@ public class pickDrop : MonoBehaviour {
 	//visual
 	public GameObject cruz;
 	public GridScript grid;
-	public Sprite marco;
+	public GameObject marco;
 	
-	//enemigos
+	//drones
 	public GameObject ShooterDronePrefab;
-	
+	private GameObject SelectedGridDrone;
+
 	private int objSeleccionado;
 	private Image miniaturaDrag;
 	
@@ -29,6 +30,7 @@ public class pickDrop : MonoBehaviour {
 	//bool swipeIn= false;
 
 	void Awake(){
+		SelectedGridDrone = null;
 		Input.multiTouchEnabled = false;
 	}
 
@@ -52,12 +54,13 @@ public class pickDrop : MonoBehaviour {
 				{
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
-					{						
+					{
 						crearObjecto(objSeleccionado, box);
 					}
 					cruz.SetActive(false);
 					grid.DisableBoxes();
 					objSeleccionado= -1;
+					marco.SetActive(false);
 				}
 			}
 			//gestual
@@ -87,9 +90,63 @@ public class pickDrop : MonoBehaviour {
 				cruz.SetActive(false);
 			}
 		}
+		else if(Input.GetMouseButtonUp(0)){
+			Vector3 position = Input.mousePosition;
+
+			//si pulsas en caja y tenias dron de tienda
+			if(position.x > Screen.width * 0.1f && (objSeleccionado != -1 && objSeleccionado != 2)){
+				GameObject box = ComprobarBox(position);
+				if(box != null)
+				{
+					crearObjecto(objSeleccionado, box);
+				}
+				//crearObjecto(objSeleccionado, Input.touches[0].position);
+				cruz.SetActive(false);
+				grid.DisableBoxes();
+				objSeleccionado= -1;
+				marco.SetActive(false);
+
+				//Debug.Log ("Pulsado con dron de tienda"+objSeleccionado);
+			}//si pulsas en caja y no tenias dron
+			else if(position.x > Screen.width * 0.1f && objSeleccionado == -1){
+				GameObject box = ComprobarBox(position);
+				if(box != null)
+				{
+//					crearObjecto(objSeleccionado, box);
+					SelectedGridDrone = box.GetComponent<BoxScript>().dron;
+					if(SelectedGridDrone != null){
+						//Debug.Log ("Has cogido dron del grid");
+						objSeleccionado= -2; //si la caja tiene dron pues has cogido un dron del grid
+						cruz.SetActive(true);
+						grid.EnableFreeBoxes();
+					}
+				}
+				//Debug.Log ("Pulsado sin dron cogido"+objSeleccionado);
+			}
+			else if(objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido
+				GameObject box = ComprobarBox(position);
+				if(box != null){
+					if(box.GetComponent<BoxScript>().dron != null){
+						box.GetComponent<BoxScript>().dron.SendMessage("SetBox", SelectedGridDrone.GetComponent<caracteristicaDrone>().box);
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+						marco.SetActive(false);
+					}
+					else{
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+						marco.SetActive(false);
+					}
+					cruz.SetActive(false);
+					grid.DisableBoxes();
+				}
+				Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
+			}
+		}
 		else
 		{
 			cruz.SetActive(false);
+			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
 		}
 	}
 	
@@ -98,7 +155,6 @@ public class pickDrop : MonoBehaviour {
 	GameObject ComprobarBox(Vector3 touchPosition)
 	{
 		Ray ray = Camera.main.ScreenPointToRay(touchPosition);
-		Debug.Log(ray);
 		
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit))
@@ -107,7 +163,6 @@ public class pickDrop : MonoBehaviour {
 			{
 				if(hit.collider.gameObject.tag.Equals("Box"))
 				{
-					Debug.Log (hit.collider.gameObject.GetComponent<BoxScript>().id);
 					return(hit.collider.gameObject);
 				}
 			}
@@ -116,13 +171,15 @@ public class pickDrop : MonoBehaviour {
 	}
 	
 	void crearObjecto(int type, GameObject box)
-	{	
+	{
 		if(!box.GetComponent<BoxScript>().taken)
 		{
+			GameObject nuevoEnemigo = null;
 			if (type == 0) //placa
 			{
-				GameObject nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
-				nuevoEnemigo.GetComponent<ShooterDrone>().boxPosition= box;
+				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.SendMessage("SetBox", box);
+				botonPlaca.GetComponent<BotonController>().Activacion();
 			} 
 			else if (type == 1)	//botiquin
 			{
@@ -138,50 +195,56 @@ public class pickDrop : MonoBehaviour {
 			}
 			else if (type == 4) //cañon
 			{
-				
+
 			}
-			box.GetComponent<BoxScript>().taken= true;
 		}
 	}
 	#endregion
 
 	#region funciones publicas
-	public void BotonApretado(int objNum)
+	public void BotonApretado(Button boton)
 	{	
-		//seleccion boton
-		if(objSeleccionado == objNum)
-		{
-			objSeleccionado= -1	;
-			grid.DisableBoxes();
-		}
-		else
-		{
-			objSeleccionado= objNum;
-			grid.EnableFreeBoxes();
-		}
-		
-		if(objSeleccionado!= -1)
-		{
-			if(objSeleccionado== 0)	//placa
-			{
-				
-			}
-			else if (objSeleccionado== 1)	//botiquin
-			{
-				
-			}
-			else if (objSeleccionado== 2)	//espejo
-			{
+		if(boton.interactable){
+			int objNum= boton.GetComponent<BotonController>().numBoton;
 			
-			}
-			else if (objSeleccionado== 3)	//mina
+			//seleccion boton
+			if (objSeleccionado == objNum) {
+				objSeleccionado = -1;
+				grid.DisableBoxes ();
+			} 
+			else
 			{
-				
+				objSeleccionado= objNum;
+				grid.EnableFreeBoxes();
 			}
-			else if (objSeleccionado== 4)	//cañon
+			
+			if(objSeleccionado!= -1)
 			{
-				
-			}	
+				if(objSeleccionado== 0)	//placa
+				{
+					marco.transform.position= botonPlaca.transform.position;
+				}
+				else if (objSeleccionado== 1)	//botiquin
+				{
+					marco.transform.position= botonBotiquin.transform.position;
+				}
+				else if (objSeleccionado== 2)	//espejo
+				{
+					marco.transform.position= botonEspejo.transform.position;
+				}
+				else if (objSeleccionado== 3)	//mina
+				{
+					marco.transform.position= botonMina.transform.position;
+				}
+				else if (objSeleccionado== 4)	//cañon
+				{
+					marco.transform.position= botonShooter.transform.position;	
+				}	
+				marco.SetActive(true);
+			}
+			else{
+				marco.SetActive(false);
+			}
 		}
 	}
 	#endregion

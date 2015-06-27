@@ -3,17 +3,18 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class BotonController : MonoBehaviour {
-	
 	public GameController datos;
-	
+	public int numBoton	;
 	public int precio;
 	public float tRecarga;
 	float cuentaAtras;
-	
 	public Button boton;
+
 	
-	void update()
+	void Update()
 	{
+		Debug.Log(boton.interactable);
+		Debug.Log (cuentaAtras);
 		if(!boton.interactable)
 		{
 			if(cuentaAtras > 0f)

@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11480512}
   - 114: {fileID: 11412418}
   - 212: {fileID: 21238510}
+  - 61: {fileID: 6123998}
   m_Layer: 0
   m_Name: ShooterDrone
   m_TagString: Drone
@@ -30,6 +31,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6123998
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188708}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 96, y: 96}
 --- !u!114 &11412418
 MonoBehaviour:
   m_ObjectHideFlags: 1
