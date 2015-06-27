@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Drone
   - Enemy
+  - Boton
+  - ImagBotonActiv
   layers:
   - Default
   - TransparentFX

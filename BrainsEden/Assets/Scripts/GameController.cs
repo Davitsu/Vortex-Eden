@@ -3,6 +3,6 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public int energiaInicial;
+	public int energia;
 	
 }

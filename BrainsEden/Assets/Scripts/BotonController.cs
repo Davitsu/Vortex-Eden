@@ -1,15 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BotonController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
 	
+	public GameController datos;
+	
+	public int precio;
+	public float tRecarga;
+	float cuentaAtras;
+	public Button boton;
+	
+	void update()
+	{
+		if(!boton.enabled)
+		{
+			if(cuentaAtras > 0f)
+				cuentaAtras-= Time.deltaTime;
+			else
+			{
+				if(datos.energia >= precio)
+				{
+					boton.enabled= true;
+				}
+			}
+		}	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void Activacion()
+	{
+		cuentaAtras= tRecarga;
+		boton.enabled= false;
 	}
+	
 }
