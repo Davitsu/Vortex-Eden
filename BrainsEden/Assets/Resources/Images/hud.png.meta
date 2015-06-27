@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eff6d6cc715fb7d45a1c2e1b28aa45f3
-timeCreated: 1435413056
+timeCreated: 1435430693
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,7 @@ TextureImporter:
     21300026: button_drone5_on
     21300028: button_drone5_off
     21300030: barra_hud
+    21300032: hud_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -222,6 +223,16 @@ TextureImporter:
         y: 172
         width: 46
         height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hud_0
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 469
+        width: 44
+        height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
