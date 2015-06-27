@@ -3,19 +3,19 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class BotonController : MonoBehaviour {
-	
 	public GameController datos;
-	
+	public int numBoton	;
 	public int precio;
 	public float tRecarga;
 	float cuentaAtras;
-	
 	public Button boton;
-	public Image botonImaEncendido;
+
 	
-	void update()
+	void Update()
 	{
-		if(!boton.enabled)
+		Debug.Log(boton.interactable);
+		Debug.Log (cuentaAtras);
+		if(!boton.interactable)
 		{
 			if(cuentaAtras > 0f)
 				cuentaAtras-= Time.deltaTime;
@@ -23,7 +23,7 @@ public class BotonController : MonoBehaviour {
 			{
 				if(datos.energia >= precio)
 				{
-					boton.enabled= true;
+					boton.interactable= true;
 				}
 			}
 		}	
@@ -32,8 +32,7 @@ public class BotonController : MonoBehaviour {
 	public void Activacion()
 	{
 		cuentaAtras= tRecarga;
-		boton.enabled= false;
-		botonImaEncendido.enabled= false;
+		boton.interactable= false;
 	}
 	
 }
