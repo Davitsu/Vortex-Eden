@@ -57,6 +57,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 10
   pausado: 0
+  muerto: 0
+  box: {fileID: 0}
 --- !u!114 &11480512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,9 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balaPrefab: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-  boxPosition: {fileID: 0}
   datos: {fileID: 11412418}
-  disparaCada: .5
+  disparaCada: 2
 --- !u!212 &21238510
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 481fd2c6d33352a4cae833bd6c77659b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -123,7 +124,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: disparaCada
-      value: .5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
