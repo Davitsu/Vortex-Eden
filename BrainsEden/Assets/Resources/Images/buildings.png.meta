@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 3ed51aa7e1d7667488532956a3cbd73c
-timeCreated: 1435391879
+guid: d6c94a069c0e66146ab789ccb5112bdd
+timeCreated: 1435416362
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_0
+    21300000: buildings_0
+    21300002: buildings_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,13 +51,23 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: character_0
+    - name: buildings_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 447
-        width: 62
-        height: 64
+        x: 0
+        y: 577
+        width: 800
+        height: 447
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: buildings_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 417
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

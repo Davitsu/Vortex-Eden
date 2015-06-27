@@ -344,48 +344,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1001 &591426518
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 154.111404
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 90.769104
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 431860, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 761eb404afcc3144d84c65d9c8acaa4f, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &605049162
 Prefab:
   m_ObjectHideFlags: 0
@@ -1500,15 +1458,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01987866c3c3bc4aaa53ae7fcd91a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botonCubo: {fileID: 1879915370}
-  botonEsfera: {fileID: 746549573}
-  iconSelec: {fileID: 507099323}
+  botonPlaca: {fileID: 0}
+  botImgPlaca: {fileID: 0}
+  botonBotiquin: {fileID: 0}
+  botImgBotiq: {fileID: 0}
+  botonEspejo: {fileID: 0}
+  botImgEspejo: {fileID: 0}
+  botonMina: {fileID: 0}
+  botImgMina: {fileID: 0}
+  botonShooter: {fileID: 0}
+  botImgShooter: {fileID: 0}
   cruz: {fileID: 1488091834}
   grid: {fileID: 124951095}
   ShooterDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
-  inputPos: {fileID: 1762584380}
-  textoSelec: {fileID: 2056067329}
-  labelGestos: {fileID: 0}
 --- !u!4 &2123941963
 Transform:
   m_ObjectHideFlags: 0
