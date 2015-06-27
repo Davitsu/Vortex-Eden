@@ -42,6 +42,7 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 115406, guid: 2fb138dbfcb73734bb063fbf3c19ff1e, type: 2}
   - {fileID: 115406, guid: 9c7d07db4f6723d488e1e3a9412bc22e, type: 2}
+  - {fileID: 115406, guid: d9147b6796a6d484085f9a22c504f4d1, type: 2}
   delay: 6
 --- !u!1001 &100100000
 Prefab:
@@ -52,7 +53,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: enemiesToSpawn.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: enemiesToSpawn.Array.data[0]
@@ -62,6 +63,10 @@ Prefab:
       propertyPath: enemiesToSpawn.Array.data[1]
       value: 
       objectReference: {fileID: 115406, guid: 9c7d07db4f6723d488e1e3a9412bc22e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: enemiesToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 115406, guid: d9147b6796a6d484085f9a22c504f4d1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111976}
