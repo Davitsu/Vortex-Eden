@@ -7,41 +7,41 @@ using UnityEngine.EventSystems;		//IsPointerOverGameObject-> comprueba si un inp
 public class pickDrop : MonoBehaviour {
 
 	//botones
-	public Button botonCubo;
-	public Button botonEsfera;
+	public Button botonPlaca;
+	public Image botImgPlaca;
+	public Button botonBotiquin;
+	public Image botImgBotiq;
+	public Button botonEspejo;
+	public Image botImgEspejo;
+	public Button botonMina;
+	public Image botImgMina;
+	public Button botonShooter;
+	public Image botImgShooter;
 	
 	//visual
-	public GameObject iconSelec;
 	public GameObject cruz;
 	public GridScript grid;
 	
-	//enemigos
+	//drones
 	public GameObject ShooterDronePrefab;
-	
+	private GameObject SelectedGridDrone;
+
 	private int objSeleccionado;
 	private Image miniaturaDrag;
 	
 	//gestos
 	Vector2 posIni;
 	//bool swipeIn= false;
-	
-	//DEVELOPEMENT_BUILD
-	public Text inputPos;
-	public Text	textoSelec;
-	public Text labelGestos;
+
 	
 	void Awake(){
+		SelectedGridDrone = null;
 		Input.multiTouchEnabled = false;
 	}
 
 	// Use this for initialization
 	void Start () {
 		objSeleccionado= -1;
-		#if DEVELOPMENT_BUILD
-		inputPos.gameObject.SetActive(true);
-		textoSelec.gameObject.SetActive(true);
-		labelGestos.gameObject.SetActive(true);
-		#endif
 	}
 
 	void Update()
@@ -59,18 +59,15 @@ public class pickDrop : MonoBehaviour {
 				{
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
-					{						
+					{
 						crearObjecto(objSeleccionado, box);
 					}
 					//crearObjecto(objSeleccionado, Input.touches[0].position);
 					cruz.SetActive(false);
-					iconSelec.SetActive(false);
 					grid.DisableBoxes();
 					objSeleccionado= -1;
+					BorrarSeleccion();
 				}
-				#if DEVELOPMENT_BUILD
-				inputPos.text= Input.touches[0].position.x.ToString() + " , " + Input.touches[0].position.y.ToString();
-				#endif
 			}
 			//gestual
 			/*else if(objSeleccionado== -1)
@@ -97,28 +94,65 @@ public class pickDrop : MonoBehaviour {
 			else
 			{
 				cruz.SetActive(false);
-				#if DEVELOPMENT_BUILD
-				inputPos.text= "N/A";
-				#endif
+			}
+		}
+		else if(Input.GetMouseButtonUp(0)){
+			Vector3 position = Input.mousePosition;
+
+			//si pulsas en caja y tenias dron de tienda
+			if(position.x > Screen.width * 0.1f && (objSeleccionado != -1 && objSeleccionado != 2)){
+				GameObject box = ComprobarBox(position);
+				if(box != null)
+				{
+					crearObjecto(objSeleccionado, box);
+				}
+				//crearObjecto(objSeleccionado, Input.touches[0].position);
+				cruz.SetActive(false);
+				grid.DisableBoxes();
+				objSeleccionado= -1;
+				BorrarSeleccion();
+
+				Debug.Log ("Pulsado con dron de tienda"+objSeleccionado);
+			}//si pulsas en caja y no tenias dron
+			else if(position.x > Screen.width * 0.1f && objSeleccionado == -1){
+				GameObject box = ComprobarBox(position);
+				if(box != null)
+				{
+//					crearObjecto(objSeleccionado, box);
+					SelectedGridDrone = box.GetComponent<BoxScript>().dron;
+					if(SelectedGridDrone != null){
+						Debug.Log ("Has cogido dron del grid");
+						objSeleccionado= -2; //si la caja tiene dron pues has cogido un dron del grid
+						cruz.SetActive(true);
+						grid.EnableFreeBoxes();
+					}
+				}
+				Debug.Log ("Pulsado sin dron cogido"+objSeleccionado);
+			}
+			else if(objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido
+				GameObject box = ComprobarBox(position);
+				if(box != null){
+					if(box.GetComponent<BoxScript>().dron != null){
+						box.GetComponent<BoxScript>().dron.SendMessage("SetBox", SelectedGridDrone.GetComponent<caracteristicaDrone>().box);
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+					}
+					else{
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+					}
+					cruz.SetActive(false);
+					grid.DisableBoxes();
+					BorrarSeleccion();
+				}
+				Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
 			}
 		}
 		else
 		{
 			cruz.SetActive(false);
-			#if DEVELOPMENT_BUILD
-			inputPos.text= "N/A";
-			#endif
+			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
 		}
-		#if DEVELOPMENT_BUILD
-		if(objSeleccionado == -1)
-		{
-			textoSelec.text="Seleccion: N/A";
-		}
-		else
-		{
-			textoSelec.text="Seleccion: " + objSeleccionado;
-		}
-		#endif
 	}
 	
 
@@ -126,7 +160,7 @@ public class pickDrop : MonoBehaviour {
 	GameObject ComprobarBox(Vector3 touchPosition)
 	{
 		Ray ray = Camera.main.ScreenPointToRay(touchPosition);
-		Debug.Log(ray);
+//		Debug.Log(ray);
 		
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit))
@@ -135,7 +169,7 @@ public class pickDrop : MonoBehaviour {
 			{
 				if(hit.collider.gameObject.tag.Equals("Box"))
 				{
-					Debug.Log (hit.collider.gameObject.GetComponent<BoxScript>().id);
+//					Debug.Log (hit.collider.gameObject.GetComponent<BoxScript>().id);
 					return(hit.collider.gameObject);
 				}
 			}
@@ -144,61 +178,84 @@ public class pickDrop : MonoBehaviour {
 	}
 	
 	void crearObjecto(int type, GameObject box)
-	{	
+	{
 		if(!box.GetComponent<BoxScript>().taken)
 		{
+			GameObject nuevoEnemigo = null;
 			if (type == 0) 
 			{
-				GameObject nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
-				nuevoEnemigo.GetComponent<ShooterDrone>().boxPosition= box;
+				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.SendMessage("SetBox", box);
 			} 
-			else if (type == 1) 
+			else if (type == 1)	//botiquin
 			{
 				
 			}
-			box.GetComponent<BoxScript>().taken= true;
+			else if (type == 2) //espejo
+			{
+				
+			}
+			else if (type == 3) //mina
+			{
+				
+			}
+			else if (type == 4) //cañon
+			{
+
+			}
+
+//			box.SendMessage("SetDrone", nuevoEnemigo);
 		}
 	}
 
-	void OnclickIzq()
+	void BorrarSeleccion()
 	{
-		Debug.Log(Time.realtimeSinceStartup + "-> PANTALLA:" + Input.mousePosition);
-		Debug.Log(Time.realtimeSinceStartup + "-> MUNDO REAL:" + Camera.main.ScreenToWorldPoint(Input.mousePosition) + "\n==============");
-		ComprobarBox(Input.mousePosition);
+		GameObject[] imagenes= GameObject.FindGameObjectsWithTag("ImagBotonActiv");
+		
+		foreach(GameObject image in imagenes){
+			image.gameObject.SetActive(false);
+		}
 	}
 	#endregion
 
 	#region funciones publicas
 	public void BotonApretado(int objNum)
-	{
+	{	
+		BorrarSeleccion();
+		
 		//seleccion boton
-		if(objSeleccionado == objNum)
-		{
-			objSeleccionado= -1	;
-			grid.DisableBoxes();
-		}
+		if (objSeleccionado == objNum) {
+			objSeleccionado = -1;
+			grid.DisableBoxes ();
+		} 
 		else
 		{
 			objSeleccionado= objNum;
 			grid.EnableFreeBoxes();
 		}
 		
-		//icono de seleccion
 		if(objSeleccionado!= -1)
 		{
-			if(objSeleccionado== 0)
+			if(objSeleccionado== 0)	//placa
 			{
-				iconSelec.transform.position= botonCubo.gameObject.transform.position;
+				botImgPlaca.gameObject.SetActive(true);
 			}
-			else if (objSeleccionado== 1)
+			else if (objSeleccionado== 1)	//botiquin
 			{
-				iconSelec.transform.position= botonEsfera.gameObject.transform.position;
+				botImgBotiq.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 2)	//espejo
+			{
+				botImgEspejo.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 3)	//mina
+			{
+				botImgMina.gameObject.SetActive(true);
+			}
+			else if (objSeleccionado== 4)	//cañon
+			{
+				botImgShooter.gameObject.SetActive(true);
 			}	
-			iconSelec.SetActive(true);
-		}
-		else
-		{
-			iconSelec.SetActive(false);
 		}
 	}
 	#endregion
