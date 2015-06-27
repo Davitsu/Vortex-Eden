@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
 		if (health <= 0) {
 			dead=true;
 			health=0;
+			AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, transform.position);
 		}
 	}
 

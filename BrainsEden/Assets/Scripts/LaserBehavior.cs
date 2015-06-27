@@ -30,7 +30,7 @@ public class LaserBehavior : MonoBehaviour {
 				counter -= Time.deltaTime;
 				if (counter <= 0) {
 					Instantiate (bullet).transform.position = transform.position;
-					counter = shootDelay;
+					counter = Random.Range(0.7f, 1.3f)*shootDelay;
 				}
 			}
 		} else {
