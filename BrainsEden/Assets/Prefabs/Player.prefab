@@ -71,9 +71,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 3.29999995, y: -8.51000023}
+  m_Offset: {x: -5.32999992, y: -9.35999966}
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 23
 --- !u!82 &8275474
 AudioSource:
   m_ObjectHideFlags: 1
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36263853d47df646be7ea51c0bab5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 500
+  moveSpeed: 100
   playerBullet: {fileID: 188926, guid: 7561e054ae4659e43a4a20a13c9ea23c, type: 2}
-  shootingSpeed: 5
+  shootingSpeed: 4
 --- !u!114 &11467068
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,11 +2,29 @@
 using System.Collections;
 
 public class MinaDrone : MonoBehaviour {
-	
-	public GameObject boxPosition;
+
 	public caracteristicaDrone datos;
 	public GameObject explosion;
+
+	void goToBox(){
+		if (datos.box != null)
+			transform.position = Vector2.MoveTowards (this.transform.position, datos.box.transform.position, 300*Time.deltaTime);
+	}
 	
+	public void SetBox(GameObject box){
+		if(datos.box != null)
+			datos.box.GetComponent<BoxScript> ().taken = false;
+		datos.box = box;
+		box.GetComponent<BoxScript>().taken = true;
+		box.GetComponent<BoxScript> ().SetDrone (this.gameObject);
+		Debug.Log ("caja " + box.GetComponent<BoxScript> ().id);
+	}
+	
+	public GameObject GetBox(){
+		return(datos.box);
+	}
+
+
 	void Update()
 	{
 		//control vida
@@ -27,7 +45,7 @@ public class MinaDrone : MonoBehaviour {
 	void Explotar(Vector2 pos)
 	{
 		Instantiate(explosion, pos, Quaternion.identity);
-		boxPosition.GetComponent<BoxScript>().taken= false;
-		Destroy(this.gameObject);
+		datos.box.GetComponent<BoxScript>().taken= false;
+		Destroy(gameObject);
 	}
 }

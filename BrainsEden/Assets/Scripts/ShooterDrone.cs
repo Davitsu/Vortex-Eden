@@ -53,6 +53,6 @@ public class ShooterDrone : MonoBehaviour {
 	}
 	
 	void Disparo(){
-	//	Instantiate(balaPrefab, this.gameObject.transform.position, Quaternion.identity);
+		Instantiate(balaPrefab, new Vector3(transform.position.x+12, transform.position.y-2, transform.position.z), Quaternion.identity);
 	}
 }

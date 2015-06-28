@@ -19,7 +19,11 @@ public class pickDrop : MonoBehaviour {
 	public GameObject marco;
 	
 	//drones
-	public GameObject ShooterDronePrefab;
+	public GameObject SolarDronePrefab;
+	public GameObject HealingDronePrefab;
+	public GameObject MirrorDronePrefab;
+	public GameObject MineDronePrefab;
+	public GameObject CannonDronePrefab;
 	private GameObject SelectedGridDrone;
 
 	private int objSeleccionado;
@@ -178,29 +182,38 @@ public class pickDrop : MonoBehaviour {
 			GameObject nuevoEnemigo = null;
 			if (type == 0) //placa
 			{
-				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo= (GameObject)Instantiate(SolarDronePrefab, box.transform.position, box.transform.rotation);
 				botonPlaca.GetComponent<BotonController>().Activacion();
 				
 				nuevoEnemigo.SendMessage("SetBox", box);
 			} 
 			else if (type == 1)	//botiquin
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(HealingDronePrefab, box.transform.position, box.transform.rotation);
+				
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonBotiquin.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 2) //espejo
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(MirrorDronePrefab, box.transform.position, box.transform.rotation);
+				
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonEspejo.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 3) //mina
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(MineDronePrefab, box.transform.position, box.transform.rotation);
+				
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonMina.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 4) //cañon
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(CannonDronePrefab, box.transform.position, box.transform.rotation);
+				
+				nuevoEnemigo.SendMessage("SetBox", box);
+
 				botonShooter.GetComponent<BotonController>().Activacion();
 			}
 

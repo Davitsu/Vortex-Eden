@@ -14,7 +14,7 @@ public class LaserBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		destiny.x = 120;
+		destiny.x = 170;
 		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 	}
 	
