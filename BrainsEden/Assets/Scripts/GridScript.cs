@@ -33,6 +33,10 @@ public class GridScript : MonoBehaviour {
 		float boxWidth = (worldWidth * width) / columns;
 		float boxHeight = (worldHeight * height) / rows;
 
+//		boxWidth = Camera.main.WorldToScreenPoint (boxWidth);
+//		boxHeight = Camera.main.WorldToScreenPoint (boxHeight);
+
+
 		lanes = new float[rows];
 		laneAvailable = new bool[rows];
 

@@ -16,12 +16,14 @@ public class MeleeBehavior : MonoBehaviour {
 	GridScript grid;
 	GameObject player;
 	GameObject drone;
+	Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		destiny.x = 150;
 		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 		player = GameObject.FindGameObjectWithTag ("Player");
+		animator = this.GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +40,7 @@ public class MeleeBehavior : MonoBehaviour {
 				if(startWalking){
 					if(attacking){
 						if(drone==null){
+							animator.SetBool("attacking", false);
 							attacking=false;
 						}
 						else{
@@ -79,6 +82,7 @@ public class MeleeBehavior : MonoBehaviour {
 		else if(other.gameObject.tag == "Drone"){
 			drone = other.gameObject;
 			attacking = true;
+			animator.SetBool("attacking", true);
 		}
 	}
 

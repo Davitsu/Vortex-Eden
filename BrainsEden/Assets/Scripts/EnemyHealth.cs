@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour {
 	float redCounter;
 	Color flickerColor;
 	Color healthColor;
+	public GameObject prefabDrops;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +54,7 @@ public class EnemyHealth : MonoBehaviour {
 			health=0;
 			AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, transform.position);
 			GameObject.FindGameObjectWithTag("GameController").SendMessage("addEnergy", energyYield);
+			Instantiate(prefabDrops, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}

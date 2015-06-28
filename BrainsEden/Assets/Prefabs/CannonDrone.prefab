@@ -174,12 +174,21 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+<<<<<<< HEAD:BrainsEden/Assets/Prefabs/ShooterDrone.prefab
+      propertyPath: m_Size.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 30
+=======
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+>>>>>>> 282ddef3563b74324c433b05d28fade83f6e2470:BrainsEden/Assets/Prefabs/CannonDrone.prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
