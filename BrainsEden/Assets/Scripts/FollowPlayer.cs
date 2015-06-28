@@ -5,7 +5,7 @@ using System.Collections;
 public class FollowPlayer : MonoBehaviour {
 	
 	private GameObject target;
-	public float speed = 10.0f;
+	public float speed = 0.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,12 +14,14 @@ public class FollowPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.position=Vector2.Lerp(this.transform.position, target.transform.position, speed*Time.deltaTime);
-	}
-
-	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
+		if((transform.position-target.transform.position).magnitude<2.0f){
 			Destroy(this.gameObject);
 		}
+		Debug.Log (transform.position);
+		transform.position=Vector2.Lerp(transform.position, target.transform.position, speed*Time.deltaTime);
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+
 	}
 }

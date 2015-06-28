@@ -353,7 +353,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3842184507241d4589b06b44bc29ffa, type: 3}
+  m_Sprite: {fileID: 21300012, guid: c3842184507241d4589b06b44bc29ffa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &183471369
 GameObject:
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801f6b45d9ae2544aaf905ec69d34be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background_speed: 100
+  background_speed: 40
 --- !u!1 &968131365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1329,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: c3842184507241d4589b06b44bc29ffa, type: 3}
+  m_Sprite: {fileID: 21300014, guid: c3842184507241d4589b06b44bc29ffa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &977664906
 Transform:
@@ -2812,8 +2812,8 @@ MonoBehaviour:
   cruz: {fileID: 1063586674}
   grid: {fileID: 76492706}
   marco: {fileID: 1040318174}
-  SolarDronePrefab: {fileID: 188708, guid: 59b0609316e4a7e48919fd059e7f8598, type: 2}
-  HealingDronePrefab: {fileID: 0}
+  SolarDronePrefab: {fileID: 184452, guid: 3c792e3e5e402f64396847430061e255, type: 2}
+  HealingDronePrefab: {fileID: 184452, guid: fb9a95fd170a1be448ffca4b5760f570, type: 2}
   MirrorDronePrefab: {fileID: 188708, guid: f3c9a2fac65802e4082598a5a5f6e521, type: 2}
   MineDronePrefab: {fileID: 144178, guid: 3a7887a61555ebb43be9ed729e1ac2ee, type: 2}
   CannonDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
