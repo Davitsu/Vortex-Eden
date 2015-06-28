@@ -59,4 +59,9 @@ public class ShooterDrone : MonoBehaviour {
 	void Disparo(){
 		Instantiate(balaPrefab, new Vector3(transform.position.x+12, transform.position.y-2, transform.position.z), Quaternion.identity);
 	}
+
+	void OnDestroy(){
+		datos.box.GetComponent<BoxScript>().taken= false;
+		datos.box.GetComponent<BoxScript> ().dron = null;
+	}
 }

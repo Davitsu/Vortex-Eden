@@ -16,8 +16,16 @@ public class HurtPlayer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Drone"){
-			other.gameObject.SendMessage("Damage", damage);
-			Destroy(gameObject);
+			if(!(other.gameObject.name.Contains("MirrorDrone") && gameObject.name.Contains("LaserBullet"))){
+				if((other.gameObject.name.Contains("CannonDrone") && gameObject.name.Contains("ArrowBullet"))){
+					SendMessage("FallOff");
+					Destroy(this);
+				}
+				else{
+				other.gameObject.SendMessage("Damage", damage);
+				Destroy(gameObject);
+				}
+			}
 		}
 	}
 }
