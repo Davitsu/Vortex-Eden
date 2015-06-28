@@ -122,7 +122,12 @@ MonoBehaviour:
   cruz: {fileID: 1552131813}
   grid: {fileID: 83372553}
   marco: {fileID: 1434746503}
-  ShooterDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
+  SolarDronePrefab: {fileID: 0}
+  HealingDronePrefab: {fileID: 0}
+  MirrorDronePrefab: {fileID: 0}
+  MineDronePrefab: {fileID: 0}
+  CannonDronePrefab: {fileID: 0}
+  objSeleccionado: 0
 --- !u!4 &72906440
 Transform:
   m_ObjectHideFlags: 0
@@ -2546,6 +2551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energia: 20
+  energiaMax: 0
+  labelEnergia: {fileID: 0}
 --- !u!4 &2037196732
 Transform:
   m_ObjectHideFlags: 0
@@ -2645,7 +2652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11464672, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
       propertyPath: columns
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11464672, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
       propertyPath: left
@@ -2653,7 +2660,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11464672, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
       propertyPath: rows
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464672, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
+      propertyPath: height
+      value: .860000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464672, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
+      propertyPath: bottom
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c39d5e52719cd0459ef11a4d8fa1b83, type: 2}
