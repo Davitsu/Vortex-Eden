@@ -16,8 +16,12 @@ public class ShooterDrone : MonoBehaviour {
 	}
 
 	public void SetBox(GameObject box){
-		if(datos.box != null)
-			datos.box.GetComponent<BoxScript> ().taken = false;
+		if (datos.box != null) {
+			if(this.gameObject == datos.box.GetComponent<BoxScript>().dron.gameObject){
+				datos.box.GetComponent<BoxScript>().dron = null;
+				datos.box.GetComponent<BoxScript> ().taken = false;
+			}
+		}
 		datos.box = box;
 		box.GetComponent<BoxScript>().taken = true;
 		box.GetComponent<BoxScript> ().SetDrone (this.gameObject);

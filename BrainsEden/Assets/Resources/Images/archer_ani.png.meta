@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b3577366244f2a344a81fb5b8d7a9aad
-timeCreated: 1435436753
+timeCreated: 1435478816
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,10 @@ TextureImporter:
     21300002: archer_ani_1
     21300004: archer_ani_2
     21300006: archer_ani_3
+    21300008: archer_ani_4
+    21300010: archer_ani_5
+    21300012: archer_ani_6
+    21300014: archer_ani_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,7 +65,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: archer_ani_1
       rect:
@@ -71,7 +75,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: archer_ani_2
       rect:
@@ -81,7 +85,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: archer_ani_3
       rect:
@@ -91,7 +95,47 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: archer_ani_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: archer_ani_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 59
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: archer_ani_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 59
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: archer_ani_7
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 59
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

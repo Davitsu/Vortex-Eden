@@ -47,14 +47,16 @@ public class pickDrop : MonoBehaviour {
 	{
 		if(Input.touchCount > 0)
 		{
-			if(Input.touches[0].position.x > Screen.width * 0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
+			if(Input.touches[0].position.x > Screen.width * 0.1f )	//posicion en coordenadas de world
 			{
-				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
+				//if(Input.touches[0].phase == TouchPhase.Began)
+				//else 
+				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary && objSeleccionado!= -1)
 				{
 					cruz.gameObject.transform.position= Input.touches[0].position;
 					cruz.SetActive(true);
 				}
-				else if(Input.touches[0].phase == TouchPhase.Ended)
+				else if(Input.touches[0].phase == TouchPhase.Ended  && (objSeleccionado != -1 && objSeleccionado != -2))
 				{
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
@@ -65,6 +67,41 @@ public class pickDrop : MonoBehaviour {
 					grid.DisableBoxes();
 					objSeleccionado= -1;
 					marco.SetActive(false);
+				}
+				else if(objSeleccionado == -1){ //si no tienes dron y coges uno de grid
+					GameObject box = ComprobarBox(Input.touches[0].position);
+					if(box != null)
+					{
+						//					crearObjecto(objSeleccionado, box);
+						SelectedGridDrone = box.GetComponent<BoxScript>().dron;
+						if(SelectedGridDrone != null){
+							//Debug.Log ("Has cogido dron del grid");
+							objSeleccionado= -2; //si la caja tiene dron pues has cogido un dron del grid
+							cruz.SetActive(true);
+							grid.EnableFreeBoxes();
+						}
+					}
+					//Debug.Log ("Pulsado sin dron cogido"+objSeleccionado);
+				}
+				else if(objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido de grid
+					GameObject box = ComprobarBox(Input.touches[0].position);
+					if(box != null){
+						if(box.GetComponent<BoxScript>().dron != null){
+							GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
+							GameObject dronAReemplazar = box.GetComponent<BoxScript>().dron;
+							Debug.Log ("Dron a reemplazar, caja "+dronAReemplazar.GetComponent<caracteristicaDrone>().box.GetComponent<BoxScript>().id+" se cambia a");
+							dronAReemplazar.SendMessage("SetBox", boxDelDronAMover);
+						}
+						Debug.Log ("Dron que reemplaza, caja "+SelectedGridDrone.GetComponent<caracteristicaDrone>().box.GetComponent<BoxScript>().id+" se cambia a");
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+						SelectedGridDrone = null;
+						
+						grid.DisableBoxes();
+						cruz.SetActive(false);
+						
+					}
+					Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
 				}
 			}
 			//gestual
@@ -131,9 +168,6 @@ public class pickDrop : MonoBehaviour {
 			else if(position.x > Screen.width * 0.1f && objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido de grid
 				GameObject box = ComprobarBox(position);
 				if(box != null){
-					grid.DisableBoxes();
-					cruz.SetActive(false);
-
 					if(box.GetComponent<BoxScript>().dron != null){
 						GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
 						GameObject dronAReemplazar = box.GetComponent<BoxScript>().dron;
@@ -144,6 +178,10 @@ public class pickDrop : MonoBehaviour {
 					SelectedGridDrone.SendMessage("SetBox", box);
 					objSeleccionado = -1;
 					SelectedGridDrone = null;
+					
+					grid.DisableBoxes();
+					cruz.SetActive(false);
+
 				}
 				Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
 			}

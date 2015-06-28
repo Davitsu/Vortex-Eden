@@ -1,20 +1,25 @@
 fileFormatVersion: 2
-guid: c24328194d93206489c54f9c76eb0be9
-timeCreated: 1435481328
+guid: b77067fcae56af046984455dce164f6c
+timeCreated: 1435476602
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wonder_ani_0
-    21300002: wonder_ani_1
-    21300004: wonder_ani_2
-    21300006: wonder_ani_3
-    21300008: wonder_ani_4
-    21300010: wonder_ani_5
-    21300012: wonder_ani_6
-    21300014: wonder_ani_7
-    21300016: wonder_ani_8
-    21300018: wonder_ani_9
-    21300020: wonder_ani_10
+    21300000: ciclope_ani_0
+    21300002: ciclope_ani_1
+    21300004: ciclope_ani_2
+    21300006: ciclope_ani_3
+    21300008: ciclope_ani_4
+    21300010: ciclope_ani_5
+    21300012: ciclope_ani_6
+    21300014: ciclope_ani_7
+    21300016: ciclope_ani_8
+    21300018: ciclope_ani_9
+    21300020: ciclope_ani_10
+    21300022: ciclope_ani_11
+    21300024: ciclope_ani_12
+    21300026: ciclope_ani_13
+    21300028: ciclope_ani_14
+    21300030: ciclope_ani_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,112 +65,162 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: wonder_ani_0
+    - name: ciclope_ani_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 94
-        width: 34
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_1
+    - name: ciclope_ani_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 94
-        width: 34
+        x: 25
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_2
+    - name: ciclope_ani_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 94
-        width: 34
+        x: 50
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_3
+    - name: ciclope_ani_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 59
-        width: 34
+        x: 75
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_4
+    - name: ciclope_ani_4
       rect:
         serializedVersion: 2
-        x: 35
-        y: 59
-        width: 34
+        x: 100
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_5
+    - name: ciclope_ani_5
       rect:
         serializedVersion: 2
-        x: 70
-        y: 59
-        width: 34
+        x: 125
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_6
+    - name: ciclope_ani_6
       rect:
         serializedVersion: 2
-        x: 105
-        y: 59
-        width: 34
+        x: 150
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_7
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 59
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_8
+    - name: ciclope_ani_7
       rect:
         serializedVersion: 2
         x: 175
-        y: 59
-        width: 34
+        y: 222
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_9
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 59
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wonder_ani_10
+    - name: ciclope_ani_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 34
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_10
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_11
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_13
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 187
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ciclope_ani_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 187
+        width: 24
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
