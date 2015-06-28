@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  energyYield: 4
   flickerTime: .400000006
 --- !u!114 &11499794
 MonoBehaviour:
@@ -288,6 +289,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: flickerTime
       value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyYield
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

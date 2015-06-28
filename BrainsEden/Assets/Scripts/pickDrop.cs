@@ -26,7 +26,7 @@ public class pickDrop : MonoBehaviour {
 	public GameObject CannonDronePrefab;
 	private GameObject SelectedGridDrone;
 
-	private int objSeleccionado;
+	public int objSeleccionado;
 	private Image miniaturaDrag;
 	
 	//gestos

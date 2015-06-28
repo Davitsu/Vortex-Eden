@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 
 	public float maxHealth=10.0f;
+	public float energyYield=2.0f;
 	public float flickerTime;
 	float health;
 	bool dead=false;
@@ -46,6 +47,7 @@ public class EnemyHealth : MonoBehaviour {
 			dead=true;
 			health=0;
 			AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, transform.position);
+			GameObject.FindGameObjectWithTag("GameController").SendMessage("addEnergy", energyYield);
 			Destroy(gameObject);
 		}
 	}
