@@ -1,11 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MinaDrone : MonoBehaviour {
-
+public class SolarDrone : MonoBehaviour {
+	
 	public caracteristicaDrone datos;
-	public GameObject explosion;
-
+	public float temporizador;
+	public int cantidad;
+	float cuenta;
+	GameController jugador;
+	
+	void Start(){
+		jugador= GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+		cuenta= temporizador;
+	}
+	
 	void goToBox(){
 		if (datos.box != null)
 			transform.position = Vector2.MoveTowards (this.transform.position, datos.box.transform.position, 300*Time.deltaTime);
@@ -27,32 +35,30 @@ public class MinaDrone : MonoBehaviour {
 	public GameObject GetBox(){
 		return(datos.box);
 	}
-
-
-	void Update()
-	{
-		goToBox();
+	
+	// Update is called once per frame
+	void Update () 
+	{	
+		if(!datos.pausado)
+		{
+			goToBox();
+			//añade energia al jugador
+			cuenta-= Time.deltaTime;
+			if(cuenta <= 0f)
+			{
+				jugador.energia+= cantidad;
+				cuenta= temporizador;
+			}
+		}
+		
 		//control vida
 		if(datos.vida <= 0f)
 		{
-			Explotar(this.transform.position);
+			datos.box.GetComponent<BoxScript>().taken= false;
+			Destroy(this.gameObject);
 		}
 	}
 	
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.gameObject.tag == "Enemy")
-		{
-			Explotar(this.transform.position);
-		}
-	}
-	
-	void Explotar(Vector2 pos)
-	{
-		Instantiate(explosion, pos, Quaternion.identity);
-		Destroy(gameObject);
-	}
-
 	void OnDestroy(){
 		datos.box.GetComponent<BoxScript>().taken= false;
 		datos.box.GetComponent<BoxScript> ().dron = null;
