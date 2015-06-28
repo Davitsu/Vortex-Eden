@@ -12,7 +12,8 @@ GameObject:
   - 61: {fileID: 6162640}
   - 212: {fileID: 21294288}
   - 114: {fileID: 11459264}
-  m_Layer: 11
+  - 114: {fileID: 11408660}
+  m_Layer: 0
   m_Name: Bala
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 188926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -70, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -39,11 +40,23 @@ BoxCollider2D:
   m_GameObject: {fileID: 188926}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
+--- !u!114 &11408660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfc514800c95bf46890a734b8779d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &11430562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e1d338898ffd14b80924f71b87b0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  direction: {x: 0, y: 0}
+  speed: 200
+  direction: {x: 1, y: 0}
   wiggle: 0
   wiggleWidth: .100000001
   wiggleFreq: 20
@@ -94,7 +107,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: b3b3c0916d9e5724ab027e847b164ef3, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
@@ -111,6 +124,38 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: wiggleFreq
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

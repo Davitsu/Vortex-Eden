@@ -3,17 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Box
-  - Enemy
-  - Drone
+  tags: []
   layers:
-  - Default
-  - TransparentFX
-  - Ignore Raycast
-  - 
-  - Water
-  - UI
   - 
   - 
   - 
@@ -40,7 +31,10 @@ TagManager:
   - 
   - 
   - 
-  m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers: []

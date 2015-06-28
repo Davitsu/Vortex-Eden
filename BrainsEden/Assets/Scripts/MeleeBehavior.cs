@@ -5,15 +5,17 @@ public class MeleeBehavior : MonoBehaviour {
 	
 	public float speed = 5000.0f;
 	public float laneSpeed = 40.0f;
-	public float hitDelay=3.0f;
+	public float hitDelay = 3.0f;
 	public float damage = 5.0f;
 	float counter=0.0f;
 	int lane;
 	Vector2 destiny;
-	bool hasLane=false;
-	bool startWalking=false;
+	bool hasLane = false;
+	bool startWalking = false;
+	bool attacking = false;
 	GridScript grid;
 	GameObject player;
+	GameObject drone;
 
 	// Use this for initialization
 	void Start () {
@@ -34,13 +36,21 @@ public class MeleeBehavior : MonoBehaviour {
 			}
 			else{
 				if(startWalking){
-					destiny.x-=laneSpeed*Time.deltaTime;
-					/*else {
-					counter -= Time.deltaTime;
-					if (counter <= 0) {
-						counter = hitDelay;
+					if(attacking){
+						if(drone==null){
+							attacking=false;
+						}
+						else{
+							counter -= Time.deltaTime;
+							if (counter <= 0) {
+								drone.SendMessage("Damage", damage);
+								counter = hitDelay;
+							}
+						}
 					}
-					}*/
+					else{
+						destiny.x-=laneSpeed*Time.deltaTime;
+					}
 				}
 			}
 
@@ -65,6 +75,10 @@ public class MeleeBehavior : MonoBehaviour {
 		if (other.gameObject.tag == "Player"){
 			other.gameObject.SendMessage("Damage", damage);
 			Destroy(gameObject);
+		}
+		else if(other.gameObject.tag == "Drone"){
+			drone = other.gameObject;
+			attacking = true;
 		}
 	}
 
