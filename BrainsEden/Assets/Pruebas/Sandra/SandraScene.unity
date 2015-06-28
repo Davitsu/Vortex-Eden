@@ -1354,17 +1354,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botonPlaca: {fileID: 0}
-  botImgPlaca: {fileID: 0}
   botonBotiquin: {fileID: 0}
-  botImgBotiq: {fileID: 0}
   botonEspejo: {fileID: 0}
-  botImgEspejo: {fileID: 0}
   botonMina: {fileID: 0}
-  botImgMina: {fileID: 0}
   botonShooter: {fileID: 0}
-  botImgShooter: {fileID: 0}
   cruz: {fileID: 1063586674}
   grid: {fileID: 76492706}
+  marco: {fileID: 0}
   ShooterDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
 --- !u!4 &1422017432
 Transform:

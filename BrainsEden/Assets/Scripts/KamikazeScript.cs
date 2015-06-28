@@ -23,7 +23,6 @@ public class KamikazeScript : MonoBehaviour {
 		grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<GridScript>();
 		enemyArea = grid.enemyArea;
 
-
 		float xCoordinate = Random.Range (enemyArea.xMin, enemyArea.xMax-GetComponent<SpriteRenderer>().sprite.bounds.size.x/1.5f);
 		float yCoordinate = Random.Range (enemyArea.yMin, enemyArea.yMax-GetComponent<SpriteRenderer>().sprite.bounds.size.y/1.5f);
 		wanderingPoint1 = new Vector2 (xCoordinate, yCoordinate);

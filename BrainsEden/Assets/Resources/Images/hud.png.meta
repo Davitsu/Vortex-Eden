@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eff6d6cc715fb7d45a1c2e1b28aa45f3
-timeCreated: 1435413056
+timeCreated: 1435438701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,24 @@ TextureImporter:
     21300026: button_drone5_on
     21300028: button_drone5_off
     21300030: barra_hud
+    21300032: bomb_01
+    21300034: bomb_02
+    21300036: bomb_03
+    21300038: bomb_04
+    21300040: cure_01
+    21300042: cure_02
+    21300044: cure_03
+    21300046: cure_04
+    21300048: solar_01
+    21300050: solar_02
+    21300052: solar_03
+    21300054: solar_04
+    21300056: canon_01
+    21300058: canon_02
+    21300060: canon_03
+    21300062: canon_04
+    21300064: hud_0
+    21300066: arrow_bullet
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -222,6 +240,186 @@ TextureImporter:
         y: 172
         width: 46
         height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bomb_01
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 248
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bomb_02
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 248
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bomb_03
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 248
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bomb_04
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 248
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cure_01
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 333
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cure_02
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 333
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cure_03
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 333
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cure_04
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 333
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: solar_01
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 374
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: solar_02
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 374
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: solar_03
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 374
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: solar_04
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 374
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: canon_01
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 292
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: canon_02
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 292
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: canon_03
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 292
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: canon_04
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 292
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hud_0
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 469
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arrow_bullet
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 449
+        width: 20
+        height: 7
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
