@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
 	public Image botonPlay;
+	public Image panel_credits;
+	public Image boton_volver;
+	public Image logo;
+	public Image boton_play;
+	public Image boton_tutorial;
+	public Image texto_vortex;
+	public Image texto_be;
 
 	float esperaPlay;
 	float contadorPlay;
@@ -32,21 +39,33 @@ public class MainMenuController : MonoBehaviour {
 		}
 	}
 
-	public void OnPlayClicked() {     //COMO ESTABA ANTES
+	public void OnPlayClicked() { 
 		empieza = true;
 		//GameObject.Find ("AudioObject").GetComponent<LoadAudio>().click_play.Play ();
 		GameObject.Find ("FadeEffect").GetComponent<FadeScript> ().fadeOut(new Color(0,0,0), 0.8f);
 	}
-}
-	/*public Image panel_creditos;
-	public Image boton_volver;
-	public Image boton_play;
-	public Image logo;
 
-	bool cambiaScene;
-	bool empieza;
-	
-	// Use this for initialization
+	public void OnCreditClicked() {
+		//GameObject.Find ("AudioObject").GetComponent<LoadAudio>().click_button.Play ();
+		panel_credits.enabled = true;
+		boton_volver.enabled = true;
+		logo.enabled = false;
+		boton_play.enabled = false;
+		texto_vortex.enabled = false;
+		texto_be.enabled = false;
+	}
+
+	public void OnBackClicked() {
+		//GameObject.Find ("AudioObject").GetComponent<LoadAudio>().click_button.Play ();
+		panel_credits.enabled = false;
+		boton_volver.enabled = false;
+		logo.enabled = true;
+		boton_play.enabled = true;
+		texto_vortex.enabled = true;
+		texto_be.enabled = true;
+	}
+}
+	/*Use this for initialization
 	void Start () {
 		cambiaScene = false;
 		empieza = false;

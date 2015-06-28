@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c3842184507241d4589b06b44bc29ffa
-timeCreated: 1435474550
+timeCreated: 1435496729
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,8 @@ TextureImporter:
     21300006: background_3
     21300008: sun
     21300010: moon
+    21300012: background_4
+    21300014: background_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +61,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 500
         width: 427
         height: 500
       alignment: 0
@@ -69,7 +71,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 429
-        y: 0
+        y: 500
         width: 427
         height: 500
       alignment: 0
@@ -79,7 +81,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 858
-        y: 0
+        y: 500
         width: 427
         height: 500
       alignment: 0
@@ -89,7 +91,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1287
-        y: 0
+        y: 500
         width: 427
         height: 500
       alignment: 0
@@ -112,6 +114,26 @@ TextureImporter:
         y: 282
         width: 82
         height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 427
+        height: 500
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background_5
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 0
+        width: 427
+        height: 500
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
