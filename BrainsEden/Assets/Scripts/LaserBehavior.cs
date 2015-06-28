@@ -5,7 +5,7 @@ public class LaserBehavior : MonoBehaviour {
 
 	public GameObject bullet;
 	public float speed = 5000.0f;
-	public float shootDelay=3.0f;
+	public float shootDelay;
 	float counter=0.0f;
 	int lane;
 	Vector2 destiny;

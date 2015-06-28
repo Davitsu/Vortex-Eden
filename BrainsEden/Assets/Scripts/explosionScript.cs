@@ -10,7 +10,12 @@ public class explosionScript : MonoBehaviour {
 	public float velocidad;
 	public float lifetime;
 
-	
+
+	void Start () {
+		Camera.main.GetComponent<CameraController>().SetShake (5.0f);
+	}
+
+
 	// Update is called once per frame
 	void Update () {
 		lifetime -= Time.deltaTime;
