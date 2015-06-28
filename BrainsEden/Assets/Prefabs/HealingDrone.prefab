@@ -1,60 +1,60 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &188708
+--- !u!1 &184452
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 455006}
-  - 114: {fileID: 11480512}
-  - 114: {fileID: 11412418}
-  - 212: {fileID: 21238510}
-  - 61: {fileID: 6123998}
-  - 95: {fileID: 9535224}
+  - 4: {fileID: 456494}
+  - 114: {fileID: 11413134}
+  - 114: {fileID: 11455962}
+  - 212: {fileID: 21238806}
+  - 61: {fileID: 6179842}
+  - 95: {fileID: 9533988}
   m_Layer: 0
-  m_Name: CannonDrone
+  m_Name: HealingDrone
   m_TagString: Drone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &455006
+--- !u!4 &456494
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 184452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6123998
+--- !u!61 &6179842
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 184452}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 30, y: 30}
---- !u!95 &9535224
+  m_Size: {x: 25, y: 25}
+--- !u!95 &9533988
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 184452}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7cebf3f2c1470aa478dc30d312b44817, type: 2}
+  m_Controller: {fileID: 9100000, guid: 420badfe9f51cb94d8eb1fc89634de80, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -62,12 +62,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11412418
+--- !u!114 &11413134
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 184452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7abad347bf4a14f9f8b08cf7b82221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  datos: {fileID: 11455962}
+  temporizador: 6
+  cantidad: 1
+--- !u!114 &11455962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184452}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ee821c49ee47534eb15ee49f6728ce1, type: 3}
@@ -77,26 +91,12 @@ MonoBehaviour:
   pausado: 0
   muerto: 0
   box: {fileID: 0}
---- !u!114 &11480512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddeeafc6860583e418c4dffee3bb895b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balaPrefab: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-  datos: {fileID: 11412418}
-  disparaCada: 1.70000005
---- !u!212 &21238510
+--- !u!212 &21238806
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188708}
+  m_GameObject: {fileID: 184452}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300056, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3, type: 3}
+  m_Sprite: {fileID: 21300040, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -125,63 +125,27 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: balaPrefab
-      value: 
-      objectReference: {fileID: 188926, guid: c2cd593e08dc1d0408f46b8c2c29cf4d, type: 2}
-    - target: {fileID: 0}
-      propertyPath: datos
-      value: 
-      objectReference: {fileID: 11412418}
-    - target: {fileID: 0}
-      propertyPath: vida
-      value: 10
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Drone
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: disparaCada
-      value: 1.70000005
+      propertyPath: vida
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_SortingOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7cebf3f2c1470aa478dc30d312b44817, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300056, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3,
+      objectReference: {fileID: 21300040, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3,
         type: 3}
     - target: {fileID: 0}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 420badfe9f51cb94d8eb1fc89634de80, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 188708}
+  m_RootGameObject: {fileID: 184452}
   m_IsPrefabParent: 1

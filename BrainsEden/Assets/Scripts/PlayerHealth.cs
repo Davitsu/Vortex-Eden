@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public float maxHealth=100.0f;
 	public float flickerTime;
-	float health;
+	public float health;
 	bool dead=false;
 	float redCounter;
 	Color flickerColor;
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	void Damage(float hp) {
+	public void Damage(float hp) {
 		if (hp > 0.0f) {
 			Camera.main.GetComponent<CameraController>().SetShake (2.0f);
 			GetComponentInChildren<SpriteRenderer>().color=flickerColor;
@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	void Heal(float hp){
+	public void Heal(float hp){
 		if (!dead && hp > 0.0f) {
 			health+=hp;
 			if (health > maxHealth) {
@@ -59,7 +59,7 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	bool isDead(){
+	public bool isDead(){
 		return dead;
 	}
 }

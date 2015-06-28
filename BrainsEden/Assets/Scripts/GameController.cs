@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 	public float vida;
 	public float vidaMax;
 	public Text labelVida;
+	GameObject player;
 	
 	public int puntuacion= 0;
 	public Text labelPuntuacion;
@@ -18,10 +19,12 @@ public class GameController : MonoBehaviour {
 	void Start()
 	{
 		vida= vidaMax;
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	void Update()
 	{
+		vida = player.GetComponent<PlayerHealth> ().health;
 		//actualizacion de energia
 		labelEnergia.text= energia.ToString();
 		labelPuntuacion.text= puntuacion.ToString();
@@ -41,7 +44,7 @@ public class GameController : MonoBehaviour {
 	{
 		puntuacion+= punt;
 	}
-	
+	/*
 	public void addHealth(float hp)
 	{
 		if(hp > 0f){
@@ -63,5 +66,5 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
-	
+	*/
 }

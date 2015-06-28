@@ -46,5 +46,6 @@ public class LaserBehavior : MonoBehaviour {
 
 	void OnDestroy() {
 		grid.laneAvailable[lane]=true;
+		GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().addPuntuacion(100);
 	}
 }
