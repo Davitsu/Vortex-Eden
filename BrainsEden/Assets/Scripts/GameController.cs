@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour {
 	
 	public int puntuacion= 0;
 	public Text labelPuntuacion;
+	float counter=3.0f;
+
+	public GameObject gameOver;
+	public Text gameOverScore;
 	
 	void Start()
 	{
@@ -25,6 +29,20 @@ public class GameController : MonoBehaviour {
 	void Update()
 	{
 		vida = player.GetComponent<PlayerHealth> ().health;
+		if (vida <= 0) {
+
+			gameOverScore.text=labelPuntuacion.text;
+			gameOver.SetActive(true);
+			labelPuntuacion.enabled=false;
+			if(counter>0){
+				counter-=Time.deltaTime;
+			}
+			else{
+				if(GameObject.Find ("FadeEffect").GetComponent<FadeScript> ().fadeOut(new Color(0,0,0), 1.5f)) {
+					Application.LoadLevel("MainMenu");
+				}
+			}
+		}
 		//actualizacion de energia
 		labelEnergia.text= energia.ToString();
 		labelPuntuacion.text= puntuacion.ToString();
