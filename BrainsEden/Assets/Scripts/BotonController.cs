@@ -7,27 +7,29 @@ public class BotonController : MonoBehaviour {
 	public int numBoton	;
 	public int precio;
 	public float tRecarga;
-	float cuentaAtras;
+	float cuentaAtras= 0f;
 	public Button boton;
 
 	void Update()
 	{
-		if(!boton.interactable)
+		if(cuentaAtras > 0f)
+			cuentaAtras-= Time.deltaTime;
+		else
 		{
-			if(cuentaAtras > 0f)
-				cuentaAtras-= Time.deltaTime;
+			if(datos.energia >= precio && cuentaAtras <= 0f)
+			{
+				boton.interactable= true;
+			}
 			else
 			{
-				if(datos.energia >= precio)
-				{
-					boton.interactable= true;
-				}
+				boton.interactable= false;
 			}
-		}	
+		}
 	}
 	
 	public void Activacion()
 	{
+		datos.energia-= precio;
 		cuentaAtras= tRecarga;
 		boton.interactable= false;
 	}
