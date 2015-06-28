@@ -1337,7 +1337,7 @@ MonoBehaviour:
   datos: {fileID: 2037196731}
   numBoton: 0
   precio: 0
-  tRecarga: 5
+  tRecarga: 1
   boton: {fileID: 1024879468}
 --- !u!114 &1024879471
 MonoBehaviour:

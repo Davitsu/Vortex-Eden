@@ -41,6 +41,8 @@ public class pickDrop : MonoBehaviour {
 
 	void Update()
 	{
+//		if(Input.position.x > Screen.width * 0.1f
+
 		if(Input.touchCount > 0)
 		{
 			if(Input.touches[0].position.x > Screen.width * 0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
@@ -49,6 +51,8 @@ public class pickDrop : MonoBehaviour {
 				{
 					cruz.gameObject.transform.position= Input.touches[0].position;
 					cruz.SetActive(true);
+					GameObject box = ComprobarBox(Input.touches[0].position);
+					box.GetComponent<SpriteRenderer>().color.a = 1.0f;
 				}
 				else if(Input.touches[0].phase == TouchPhase.Ended)
 				{

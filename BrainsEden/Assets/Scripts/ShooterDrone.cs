@@ -34,7 +34,7 @@ public class ShooterDrone : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () 
-	{	
+	{
 		if(!datos.pausado)
 		{
 			goToBox();
