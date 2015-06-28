@@ -17,20 +17,21 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		#if UNITY_EDITOR_WIN
-		if (Input.GetMouseButton(0)){
-			if(Input.mousePosition.x > Screen.width*0.1f)	//posicion en coordenadas de world
-			{
-				lastClickedPosition= Input.mousePosition;
+
+		if (GameObject.Find ("Pick&DropController").GetComponent<pickDrop> ().objSeleccionado == -1) {
+			#if UNITY_EDITOR_WIN
+			if (Input.GetMouseButton (0)) {
+				if (Input.mousePosition.x > Screen.width * 0.1f) {	//posicion en coordenadas de world
+					lastClickedPosition = Input.mousePosition;
 				
-				if(counter<=0){
-					Instantiate(playerBullet).transform.position= new Vector3(transform.position.x+30.0f, transform.position.y-1, transform.position.z);
-					counter=1.0f/shootingSpeed;
+					if (counter <= 0) {
+						Instantiate (playerBullet).transform.position = new Vector3 (transform.position.x + 30.0f, transform.position.y - 1, transform.position.z);
+						counter = 1.0f / shootingSpeed;
+					}
 				}
-			}
 			
-		}
-		#elif UNITY_ANDROID
+			}
+			#elif UNITY_ANDROID
 		if(Input.touchCount > 0)
 		{
 
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 			}
 
 		}
-		#else
+			#else
 		if (Input.GetMouseButton(0)){
 			if(Input.mousePosition.x > Screen.width*0.1f)	//posicion en coordenadas de world
 			{
@@ -63,7 +64,9 @@ public class PlayerController : MonoBehaviour {
 			}
 
 		}
-		#endif
+			#endif
+		
+		}
 
 		counter-=Time.deltaTime;
 
