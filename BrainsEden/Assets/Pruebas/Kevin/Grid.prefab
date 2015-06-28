@@ -40,11 +40,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   columns: 5
-  rows: 6
-  bottom: 0
-  left: 90
+  rows: 5
+  bottom: 15
+  left: 140
   width: .5
-  height: 1
+  height: .860000014
   tilePrefab: {fileID: 160942, guid: ee7ddf31a1a737e438a9dc8cc53642d0, type: 2}
   enemyArea:
     serializedVersion: 2
