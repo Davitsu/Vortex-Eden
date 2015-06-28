@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 3ed51aa7e1d7667488532956a3cbd73c
-timeCreated: 1435433238
+guid: c24328194d93206489c54f9c76eb0be9
+timeCreated: 1435432027
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_0
-    21300002: character_1
-    21300004: character_2
-    21300006: character_3
+    21300000: wonder_ani_0
+    21300002: wonder_ani_1
+    21300004: wonder_ani_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,43 +52,33 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: character_0
+    - name: wonder_ani_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 77
-        height: 64
+        y: 94
+        width: 33
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_1
+    - name: wonder_ani_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 448
-        width: 77
-        height: 64
+        x: 34
+        y: 94
+        width: 33
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_2
+    - name: wonder_ani_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 448
-        width: 77
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_3
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 448
-        width: 77
-        height: 64
+        x: 68
+        y: 94
+        width: 33
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

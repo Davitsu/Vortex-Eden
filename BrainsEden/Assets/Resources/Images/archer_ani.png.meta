@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 3ed51aa7e1d7667488532956a3cbd73c
-timeCreated: 1435433238
+guid: b3577366244f2a344a81fb5b8d7a9aad
+timeCreated: 1435436753
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: character_0
-    21300002: character_1
-    21300004: character_2
-    21300006: character_3
+    21300000: archer_ani_0
+    21300002: archer_ani_1
+    21300004: archer_ani_2
+    21300006: archer_ani_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,43 +53,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: character_0
+    - name: archer_ani_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 77
-        height: 64
+        y: 94
+        width: 36
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_1
+    - name: archer_ani_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 448
-        width: 77
-        height: 64
+        x: 37
+        y: 94
+        width: 36
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_2
+    - name: archer_ani_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 448
-        width: 77
-        height: 64
+        x: 74
+        y: 94
+        width: 36
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_3
+    - name: archer_ani_3
       rect:
         serializedVersion: 2
-        x: 234
-        y: 448
-        width: 77
-        height: 64
+        x: 111
+        y: 94
+        width: 36
+        height: 34
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
