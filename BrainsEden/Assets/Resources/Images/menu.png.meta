@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2feee2799eea3a942b3edb2d5c17d482
-timeCreated: 1435486165
+timeCreated: 1435494506
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,11 @@ TextureImporter:
     21300004: pausa
     21300006: be
     21300008: vortex
+    21300010: logo
+    21300012: creditos
+    21300014: tutorial
+    21300016: back
+    21300018: menu_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -101,6 +106,56 @@ TextureImporter:
         y: 459
         width: 42
         height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: logo
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 368
+        width: 94
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: creditos
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 300
+        width: 58
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tutorial
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 300
+        width: 58
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: back
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 300
+        width: 58
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: menu_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 96
+        width: 360
+        height: 194
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -161,6 +161,16 @@ public class pickDrop : MonoBehaviour {
 //			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
 		}
 	}
+
+	public void CheckDestroyed(GameObject drone){
+		if (drone == SelectedGridDrone) {
+			objSeleccionado = -1;
+			SelectedGridDrone = null;
+			
+			grid.DisableBoxes();
+			cruz.SetActive(false);
+		}
+	}
 	
 
 	#region funciones privadas

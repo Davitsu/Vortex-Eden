@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour {
 	public GameObject playerBullet;
 	public float shootingSpeed=5.0f;
 	float counter;
+	GridScript grid;
 
 	// Use this for initialization
 	void Start () {
 		counter = 0.0f;
+		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 	}
 	
 	// Update is called once per frame
@@ -70,11 +72,13 @@ public class PlayerController : MonoBehaviour {
 
 		counter-=Time.deltaTime;
 
-		if (lastClickedPosition.y > Screen.height - 50) {
-			lastClickedPosition.y = Screen.height - 50;
+
+
+		if (lastClickedPosition.y > Camera.main.WorldToScreenPoint(new Vector3(0,grid.lanes[grid.lanes.Length-1],0)).y) {
+			lastClickedPosition.y = Camera.main.WorldToScreenPoint(new Vector3(0,grid.lanes[grid.lanes.Length-1],0)).y;
 		}
-		else if (lastClickedPosition.y < 80) {
-			lastClickedPosition.y = 80;
+		else if (lastClickedPosition.y < Camera.main.WorldToScreenPoint(new Vector3(0,grid.lanes[0],0)).y) {
+			lastClickedPosition.y = Camera.main.WorldToScreenPoint(new Vector3(0,grid.lanes[0],0)).y;
 		}
 
 		float diff = transform.position.y - Camera.main.ScreenToWorldPoint(lastClickedPosition).y;
