@@ -45,13 +45,14 @@ public class pickDrop : MonoBehaviour {
 
 	void Update()
 	{
+//		if(Input.position.x > Screen.width * 0.1f
+
 		if(Input.touchCount > 0)
 		{
 			if(Input.touches[0].position.x > Screen.width * 0.1f )	//posicion en coordenadas de world
 			{
 				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary && objSeleccionado!= -1)
 				{
-				
 				}
 				else if(Input.touches[0].phase == TouchPhase.Ended  && (objSeleccionado != -1 && objSeleccionado != -2))
 				{
