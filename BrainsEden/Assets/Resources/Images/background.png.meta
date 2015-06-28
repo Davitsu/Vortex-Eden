@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c3842184507241d4589b06b44bc29ffa
-timeCreated: 1435413967
+timeCreated: 1435474550
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,8 @@ TextureImporter:
     21300002: background_1
     21300004: background_2
     21300006: background_3
+    21300008: sun
+    21300010: moon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -33,7 +35,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -90,6 +92,26 @@ TextureImporter:
         y: 0
         width: 427
         height: 500
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sun
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 379
+        width: 113
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: moon
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 282
+        width: 82
+        height: 74
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
