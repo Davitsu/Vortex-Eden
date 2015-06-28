@@ -512,17 +512,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botonPlaca: {fileID: 880393795}
-  botImgPlaca: {fileID: 1209977219}
   botonBotiquin: {fileID: 1147548117}
-  botImgBotiq: {fileID: 71209228}
   botonEspejo: {fileID: 1462298564}
-  botImgEspejo: {fileID: 719966085}
   botonMina: {fileID: 422780344}
-  botImgMina: {fileID: 347432816}
   botonShooter: {fileID: 854034381}
-  botImgShooter: {fileID: 1678085883}
   cruz: {fileID: 1550479328}
   grid: {fileID: 9510839}
+  marco: {fileID: 0}
   ShooterDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
 --- !u!4 &383382036
 Transform:
@@ -1302,7 +1298,7 @@ GameObject:
   - 114: {fileID: 880393798}
   m_Layer: 5
   m_Name: botPlaca
-  m_TagString: Untagged
+  m_TagString: Boton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

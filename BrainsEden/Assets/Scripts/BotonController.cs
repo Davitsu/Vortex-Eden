@@ -10,11 +10,8 @@ public class BotonController : MonoBehaviour {
 	float cuentaAtras;
 	public Button boton;
 
-	
 	void Update()
 	{
-		Debug.Log(boton.interactable);
-		Debug.Log (cuentaAtras);
 		if(!boton.interactable)
 		{
 			if(cuentaAtras > 0f)

@@ -26,7 +26,7 @@ public class pickDrop : MonoBehaviour {
 	private Image miniaturaDrag;
 	
 	//gestos
-	Vector2 posIni;
+	//Vector2 posIni;
 	//bool swipeIn= false;
 
 	void Awake(){
@@ -95,6 +95,7 @@ public class pickDrop : MonoBehaviour {
 
 			//si pulsas en caja y tenias dron de tienda
 			if(position.x > Screen.width * 0.1f && (objSeleccionado != -1 && objSeleccionado != -2)){	//si tocas el grid con dron comprado
+
 				GameObject box = ComprobarBox(position);
 				if(box != null)
 				{
@@ -128,7 +129,6 @@ public class pickDrop : MonoBehaviour {
 				if(box != null){
 					grid.DisableBoxes();
 					cruz.SetActive(false);
-					BorrarSeleccion();
 
 					if(box.GetComponent<BoxScript>().dron != null){
 						GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
@@ -180,34 +180,30 @@ public class pickDrop : MonoBehaviour {
 			{
 				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
 				botonPlaca.GetComponent<BotonController>().Activacion();
+				
+				nuevoEnemigo.SendMessage("SetBox", box);
 			} 
 			else if (type == 1)	//botiquin
 			{
-				
+				//aqui instanciar drone (como arriba)
+				botonBotiquin.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 2) //espejo
 			{
-				
+				//aqui instanciar drone (como arriba)
+				botonEspejo.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 3) //mina
 			{
-				
+				//aqui instanciar drone (como arriba)
+				botonMina.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 4) //cañon
 			{
-
+				//aqui instanciar drone (como arriba)
+				botonShooter.GetComponent<BotonController>().Activacion();
 			}
-			
-			nuevoEnemigo.SendMessage("SetBox", box);
-		}
-	}
 
-	void BorrarSeleccion()
-	{
-		GameObject[] imagenes= GameObject.FindGameObjectsWithTag("ImagBotonActiv");
-		
-		foreach(GameObject image in imagenes){
-			image.gameObject.SetActive(false);
 		}
 	}
 	#endregion
