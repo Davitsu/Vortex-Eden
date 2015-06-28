@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BackgroundController : MonoBehaviour {
 	GameObject[] background;
-	public float background_speed = 800;
+	public float background_speed = 2000;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +31,7 @@ public class BackgroundController : MonoBehaviour {
 		for (int i = 0; i < background.Length; i++) {
 			background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y - background_speed * Time.deltaTime, background [i].transform.position.z);
 			if (background [i].transform.position.y < -499) {
-				background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y + 3493, background [i].transform.position.z);
+				background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y + 3992, background [i].transform.position.z);
 			}
 		}
 	}
