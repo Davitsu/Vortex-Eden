@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 431088}
   - 114: {fileID: 11475422}
-  - 61: {fileID: 6142136}
+  - 61: {fileID: 6139386}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -58,9 +58,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 431088}
   m_RootOrder: 0
---- !u!61 &6142136
+--- !u!61 &6139386
 BoxCollider2D:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160942}
