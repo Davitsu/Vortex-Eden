@@ -11,11 +11,14 @@ public class LaserBehavior : MonoBehaviour {
 	Vector2 destiny;
 	bool hasLane=false;
 	GridScript grid;
+	Animator animator;
+	float contadorAni = 0;
 
 	// Use this for initialization
 	void Start () {
 		destiny.x = 170;
 		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
+		animator = this.GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +32,8 @@ public class LaserBehavior : MonoBehaviour {
 
 				counter -= Time.deltaTime;
 				if (counter <= 0) {
+					animator.SetBool("attacking", true);
+					contadorAni = 3;
 					Instantiate (bullet).transform.position = transform.position;
 					counter = Random.Range(0.7f, 1.3f)*shootDelay;
 				}
@@ -41,7 +46,12 @@ public class LaserBehavior : MonoBehaviour {
 				hasLane=true;
 			}
 		}
-
+		if (contadorAni > 0) {
+			contadorAni -= Time.deltaTime*5;
+			if(contadorAni <= 0) {
+				animator.SetBool("attacking", false);
+			}
+		}
 	}
 
 	void OnDestroy() {
