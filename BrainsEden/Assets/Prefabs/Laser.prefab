@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 442354}
   - 212: {fileID: 21295840}
-  - 95: {fileID: 9578346}
+  - 95: {fileID: 9573310}
   m_Layer: 0
   m_Name: gottapick_image_1
   m_TagString: Untagged
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.3497238, y: -45.1922226, z: 0}
+  m_LocalPosition: {x: 56.0059471, y: -72.8572083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 442354}
@@ -160,7 +160,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!95 &9578346
+--- !u!95 &9573310
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 106276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7c3655acaa21b4e4b935f36ddf715364, type: 2}
+  m_Controller: {fileID: 9100000, guid: 172c9c884e354fb4dab8744fd996983b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   maxHealth: 10
   energyYield: 4
   flickerTime: .400000006
+  prefabDrops: {fileID: 171186, guid: 7432250597ecb1641bb29717558f7f54, type: 2}
 --- !u!114 &11499794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +296,10 @@ Prefab:
       propertyPath: energyYield
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefabDrops
+      value: 
+      objectReference: {fileID: 171186, guid: 7432250597ecb1641bb29717558f7f54, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115406}

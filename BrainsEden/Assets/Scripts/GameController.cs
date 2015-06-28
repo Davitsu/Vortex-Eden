@@ -8,10 +8,27 @@ public class GameController : MonoBehaviour {
 	public int energiaMax;
 	public Text labelEnergia;
 	
+	public float vida;
+	public float vidaMax;
+	public Text labelVida;
+	GameObject player;
+	
+	public int puntuacion= 0;
+	public Text labelPuntuacion;
+	
+	void Start()
+	{
+		vida= vidaMax;
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
+	
 	void Update()
 	{
+		vida = player.GetComponent<PlayerHealth> ().health;
 		//actualizacion de energia
 		labelEnergia.text= energia.ToString();
+		labelPuntuacion.text= puntuacion.ToString();
+		labelVida.text= vida.ToString();
 	}
 
 	public void addEnergy(int energy){
@@ -22,4 +39,32 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
+	
+	public void addPuntuacion(int punt)
+	{
+		puntuacion+= punt;
+	}
+	/*
+	public void addHealth(float hp)
+	{
+		if(hp > 0f){
+			vida+= hp;
+			if(vida > vidaMax)
+			{
+				vida= vidaMax;
+			}
+		}
+	}
+	
+	public void reduceHealth(float hp)
+	{
+		if(hp > 0f){
+			vida-= hp;
+			if(vida <= 0f)
+			{
+				//ESTADO PARTIDA FIN
+			}
+		}
+	}
+	*/
 }

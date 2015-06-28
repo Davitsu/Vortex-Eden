@@ -45,13 +45,14 @@ public class pickDrop : MonoBehaviour {
 
 	void Update()
 	{
+//		if(Input.position.x > Screen.width * 0.1f
+
 		if(Input.touchCount > 0)
 		{
 			if(Input.touches[0].position.x > Screen.width * 0.1f )	//posicion en coordenadas de world
 			{
 				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary && objSeleccionado!= -1)
 				{
-				
 				}
 				else if(Input.touches[0].phase == TouchPhase.Ended  && (objSeleccionado != -1 && objSeleccionado != -2))
 				{
@@ -158,6 +159,16 @@ public class pickDrop : MonoBehaviour {
 		{
 			cruz.SetActive(false);
 //			Debug.Log ("Pulsado en otra situacion"+objSeleccionado);
+		}
+	}
+
+	public void CheckDestroyed(GameObject drone){
+		if (drone == SelectedGridDrone) {
+			objSeleccionado = -1;
+			SelectedGridDrone = null;
+			
+			grid.DisableBoxes();
+			cruz.SetActive(false);
 		}
 	}
 	

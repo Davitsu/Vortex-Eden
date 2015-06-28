@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SolarDrone : MonoBehaviour {
+public class HealingDrone : MonoBehaviour {
 	
 	public caracteristicaDrone datos;
 	public float temporizador;
 	public int cantidad;
 	float cuenta;
-	GameController jugador;
+	PlayerHealth jugador;
 	
 	void Start(){
-		jugador= GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+		jugador= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
 		cuenta= temporizador;
 	}
 	
@@ -42,11 +42,11 @@ public class SolarDrone : MonoBehaviour {
 		if(!datos.pausado)
 		{
 			goToBox();
-			//añade energia al jugador
+			//cura al jugador
 			cuenta-= Time.deltaTime;
 			if(cuenta <= 0f)
 			{
-				jugador.energia+= cantidad;
+				jugador.Heal(cantidad);
 				cuenta= temporizador;
 			}
 		}

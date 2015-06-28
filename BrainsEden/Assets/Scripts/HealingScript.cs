@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SolarDrone : MonoBehaviour {
+public class HealingScript : MonoBehaviour {
 	
 	public caracteristicaDrone datos;
 	public float temporizador;
@@ -46,7 +46,7 @@ public class SolarDrone : MonoBehaviour {
 			cuenta-= Time.deltaTime;
 			if(cuenta <= 0f)
 			{
-				jugador.energia+= cantidad;
+				jugador.vida+= cantidad;
 				cuenta= temporizador;
 			}
 		}

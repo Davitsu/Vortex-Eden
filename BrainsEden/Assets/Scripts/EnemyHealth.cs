@@ -10,30 +10,36 @@ public class EnemyHealth : MonoBehaviour {
 	bool dead=false;
 	float redCounter;
 	Color flickerColor;
+	Color healthColor;
+	public GameObject prefabDrops;
 
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
 		flickerColor = new Color (1.0F, 0.5F, 0.5F, 1.0F);
+		healthColor= new Color (1.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (health / maxHealth < 0.5) {
+			healthColor = new Color (1.0F, health / maxHealth, health / maxHealth, 1.0F);
+		}
 		if (redCounter > 0) {
 			redCounter -= Time.deltaTime;
 			if (redCounter < (1 * flickerTime / 5)) {
 				GetComponentInChildren<SpriteRenderer> ().color = flickerColor;
 			} else if (redCounter < (2 * flickerTime / 5)) {
-				GetComponentInChildren<SpriteRenderer> ().color = Color.white;
+				GetComponentInChildren<SpriteRenderer> ().color = healthColor;
 			} else if (redCounter < (3 * flickerTime / 5)) {
 				GetComponentInChildren<SpriteRenderer> ().color = flickerColor;
 			} else if (redCounter < (4 * flickerTime / 5)) {
-				GetComponentInChildren<SpriteRenderer> ().color = Color.white;
+				GetComponentInChildren<SpriteRenderer> ().color = healthColor;
 			} else {
 				GetComponentInChildren<SpriteRenderer> ().color = flickerColor;
 			}
 		} else {
-			GetComponentInChildren<SpriteRenderer> ().color = Color.white;
+			GetComponentInChildren<SpriteRenderer> ().color = healthColor;
 		}
 	}
 
@@ -48,6 +54,7 @@ public class EnemyHealth : MonoBehaviour {
 			health=0;
 			AudioSource.PlayClipAtPoint(GetComponent<AudioSource>().clip, transform.position);
 			GameObject.FindGameObjectWithTag("GameController").SendMessage("addEnergy", energyYield);
+			Instantiate(prefabDrops, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
 	}

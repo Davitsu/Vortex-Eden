@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a2c0e919f78364681009889eb9834b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
 --- !u!114 &11459264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,6 +293,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300066, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188926}

@@ -32,4 +32,10 @@ public class EspejoDrone : MonoBehaviour {
 		box.GetComponent<BoxScript> ().SetDrone (this.gameObject);
 		Debug.Log ("caja " + box.GetComponent<BoxScript> ().id);
 	}
+
+	void OnDestroy(){
+		GameObject.Find ("Pick&DropController").SendMessage ("CheckDestroyed", this.gameObject);
+		datos.box.GetComponent<BoxScript>().taken= false;
+		datos.box.GetComponent<BoxScript> ().dron = null;
+	}
 }
