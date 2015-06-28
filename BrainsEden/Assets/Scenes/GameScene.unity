@@ -781,7 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datos: {fileID: 1756727127}
   numBoton: 3
-  precio: 10
+  precio: 5
   tRecarga: 5
   boton: {fileID: 346046598}
 --- !u!1 &348802722
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datos: {fileID: 1756727127}
   numBoton: 1
-  precio: 10
+  precio: 20
   tRecarga: 5
   boton: {fileID: 348802725}
 --- !u!1 &436116838
@@ -2746,9 +2746,10 @@ MonoBehaviour:
   marco: {fileID: 1040318174}
   SolarDronePrefab: {fileID: 0}
   HealingDronePrefab: {fileID: 0}
-  MirrorDronePrefab: {fileID: 0}
+  MirrorDronePrefab: {fileID: 188708, guid: f3c9a2fac65802e4082598a5a5f6e521, type: 2}
   MineDronePrefab: {fileID: 144178, guid: 3a7887a61555ebb43be9ed729e1ac2ee, type: 2}
   CannonDronePrefab: {fileID: 188708, guid: 83854babbba634446a822f65b44ea027, type: 2}
+  objSeleccionado: 0
 --- !u!4 &1422017432
 Transform:
   m_ObjectHideFlags: 0
@@ -3082,7 +3083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datos: {fileID: 1756727127}
   numBoton: 0
-  precio: 10
+  precio: 40
   tRecarga: 5
   boton: {fileID: 1590875313}
 --- !u!1 &1599207318
@@ -3335,7 +3336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datos: {fileID: 1756727127}
   numBoton: 4
-  precio: 10
+  precio: 15
   tRecarga: 5
   boton: {fileID: 1620849908}
 --- !u!1001 &1626030500
@@ -4580,7 +4581,7 @@ GameObject:
   - 114: {fileID: 1756727127}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4597,6 +4598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energia: 50
+  energiaMax: 200
   labelEnergia: {fileID: 436116840}
 --- !u!4 &1756727128
 Transform:
