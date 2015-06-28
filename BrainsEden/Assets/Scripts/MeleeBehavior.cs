@@ -19,7 +19,7 @@ public class MeleeBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		destiny.x = 120;
+		destiny.x = 150;
 		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}

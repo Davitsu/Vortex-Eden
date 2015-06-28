@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 188926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -70, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfc514800c95bf46890a734b8779d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: .5
 --- !u!212 &21294288
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: b3b3c0916d9e5724ab027e847b164ef3, type: 3}
+  m_Sprite: {fileID: 21300070, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -226,15 +226,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: wiggleWidth
@@ -292,6 +292,14 @@ Prefab:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: .5
+      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300070, guid: eff6d6cc715fb7d45a1c2e1b28aa45f3,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 188926}

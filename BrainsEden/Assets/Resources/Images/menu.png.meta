@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 2feee2799eea3a942b3edb2d5c17d482
-timeCreated: 1435428442
+timeCreated: 1435486165
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: menu_0
     21300002: menu_1
+    21300004: pausa
+    21300006: be
+    21300008: vortex
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -68,6 +71,36 @@ TextureImporter:
         y: 391
         width: 127
         height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pausa
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 478
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: be
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 471
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: vortex
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 459
+        width: 42
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
