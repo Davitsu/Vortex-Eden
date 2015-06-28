@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour {
 		//Aqui es donde vibra la camara
 		if(shake>0.01f){
 			transform.Translate((shakeDirX*shake*(20+Random.Range(0, 50))/100), (shakeDirZ*shake*(20+Random.Range(0, 50))/100), 0);
-			shake-=Time.deltaTime;
+			shake-=5*Time.deltaTime;
 
 			if(Random.Range(0, 2)==0){
 				shakeDirX=-shakeDirX;
@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	//Este es el setter de la vibracion de la camara
-	void SetShake(float amount) {
+	public void SetShake(float amount) {
 		if (amount > shake) {
 			shake = amount;
 		}

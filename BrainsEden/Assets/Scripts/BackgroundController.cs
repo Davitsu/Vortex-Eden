@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BackgroundController : MonoBehaviour {
 	GameObject[] background;
-	public float background_speed = 800;
+	public float background_speed = 2000;
 
 	// Use this for initialization
 	void Start () {
@@ -17,21 +17,21 @@ public class BackgroundController : MonoBehaviour {
 		background [6] = GameObject.Find ("background_6");
 		background [7] = GameObject.Find ("background_7");
 
-		background [1].transform.position = new Vector3 (background [1].transform.position.x, background [0].transform.position.y + 500, background [1].transform.position.z);
-		background [2].transform.position = new Vector3 (background [2].transform.position.x, background [0].transform.position.y + 1000, background [2].transform.position.z);
-		background [3].transform.position = new Vector3 (background [3].transform.position.x, background [0].transform.position.y + 1500, background [3].transform.position.z);
-		background [4].transform.position = new Vector3 (background [4].transform.position.x, background [0].transform.position.y + 2000, background [4].transform.position.z);
-		background [5].transform.position = new Vector3 (background [5].transform.position.x, background [0].transform.position.y + 2500, background [5].transform.position.z);
-		background [6].transform.position = new Vector3 (background [6].transform.position.x, background [0].transform.position.y + 3000, background [6].transform.position.z);
-		background [7].transform.position = new Vector3 (background [7].transform.position.x, background [0].transform.position.y + 3500, background [7].transform.position.z);
+		background [1].transform.position = new Vector3 (background [1].transform.position.x, background [0].transform.position.y + 499, background [1].transform.position.z);
+		background [2].transform.position = new Vector3 (background [2].transform.position.x, background [0].transform.position.y + 998, background [2].transform.position.z);
+		background [3].transform.position = new Vector3 (background [3].transform.position.x, background [0].transform.position.y + 1497, background [3].transform.position.z);
+		background [4].transform.position = new Vector3 (background [4].transform.position.x, background [0].transform.position.y + 1996, background [4].transform.position.z);
+		background [5].transform.position = new Vector3 (background [5].transform.position.x, background [0].transform.position.y + 2495, background [5].transform.position.z);
+		background [6].transform.position = new Vector3 (background [6].transform.position.x, background [0].transform.position.y + 2994, background [6].transform.position.z);
+		background [7].transform.position = new Vector3 (background [7].transform.position.x, background [0].transform.position.y + 3493, background [7].transform.position.z);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < background.Length; i++) {
 			background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y - background_speed * Time.deltaTime, background [i].transform.position.z);
-			if (background [i].transform.position.y < -500) {
-				background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y + 4000, background [i].transform.position.z);
+			if (background [i].transform.position.y < -499) {
+				background [i].transform.position = new Vector3 (background [i].transform.position.x, background [i].transform.position.y + 3992, background [i].transform.position.z);
 			}
 		}
 	}

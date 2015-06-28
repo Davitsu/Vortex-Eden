@@ -1,12 +1,20 @@
 fileFormatVersion: 2
 guid: c24328194d93206489c54f9c76eb0be9
-timeCreated: 1435432027
+timeCreated: 1435481328
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: wonder_ani_0
     21300002: wonder_ani_1
     21300004: wonder_ani_2
+    21300006: wonder_ani_3
+    21300008: wonder_ani_4
+    21300010: wonder_ani_5
+    21300012: wonder_ani_6
+    21300014: wonder_ani_7
+    21300016: wonder_ani_8
+    21300018: wonder_ani_9
+    21300020: wonder_ani_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,30 +65,110 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 94
-        width: 33
+        width: 34
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: wonder_ani_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 35
         y: 94
-        width: 33
+        width: 34
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: wonder_ani_2
       rect:
         serializedVersion: 2
-        x: 68
+        x: 70
         y: 94
-        width: 33
+        width: 34
         height: 34
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_6
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_8
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_9
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 59
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wonder_ani_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

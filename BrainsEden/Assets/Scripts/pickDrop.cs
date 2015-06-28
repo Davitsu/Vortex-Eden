@@ -19,7 +19,11 @@ public class pickDrop : MonoBehaviour {
 	public GameObject marco;
 	
 	//drones
-	public GameObject ShooterDronePrefab;
+	public GameObject SolarDronePrefab;
+	public GameObject HealingDronePrefab;
+	public GameObject MirrorDronePrefab;
+	public GameObject MineDronePrefab;
+	public GameObject CannonDronePrefab;
 	private GameObject SelectedGridDrone;
 
 	private int objSeleccionado;
@@ -45,53 +49,55 @@ public class pickDrop : MonoBehaviour {
 
 		if(Input.touchCount > 0)
 		{
-			if(Input.touches[0].position.x > Screen.width * 0.1f && objSeleccionado!= -1)	//posicion en coordenadas de world
+			if(Input.touches[0].position.x > Screen.width * 0.1f )	//posicion en coordenadas de world
 			{
-				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
+				if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary && objSeleccionado!= -1)
 				{
-					cruz.gameObject.transform.position= Input.touches[0].position;
-					cruz.SetActive(true);
-					GameObject box = ComprobarBox(Input.touches[0].position);
-					box.GetComponent<SpriteRenderer>().color.a = 1.0f;
 				}
-				else if(Input.touches[0].phase == TouchPhase.Ended)
+				else if(Input.touches[0].phase == TouchPhase.Ended  && (objSeleccionado != -1 && objSeleccionado != -2))
 				{
 					GameObject box = ComprobarBox(Input.touches[0].position);
 					if(box != null)
 					{
 						crearObjecto(objSeleccionado, box);
 					}
-					cruz.SetActive(false);
-					grid.DisableBoxes();
 					objSeleccionado= -1;
 					marco.SetActive(false);
 				}
-			}
-			//gestual
-			/*else if(objSeleccionado== -1)
-			{
-				if(Input.touches[0].phase == TouchPhase.Began)
-				{
-					posIni= Input.touches[0].position;
-				}
-				else if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
-				{
-					Vector2 posFin= Input.touches[0].position;
-					
-					if(posIni.x > posFin.x && Vector2.Distance(posIni, posFin) >= Screen.width / 5f )
+				else if(objSeleccionado == -1){ //si no tienes dron y coges uno de grid
+					GameObject box = ComprobarBox(Input.touches[0].position);
+					if(box != null)
 					{
-						swipeIn= true;
+						//					crearObjecto(objSeleccionado, box);
+						SelectedGridDrone = box.GetComponent<BoxScript>().dron;
+						if(SelectedGridDrone != null){
+							objSeleccionado= -2; //si la caja tiene dron pues has cogido un dron del grid
+						}
 					}
 				}
-				else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-				{
-					swipeIn= false;
+				else if(objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido de grid
+					GameObject box = ComprobarBox(Input.touches[0].position);
+					if(box != null){
+						if(box.GetComponent<BoxScript>().dron != null){
+							GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
+							GameObject dronAReemplazar = box.GetComponent<BoxScript>().dron;
+							dronAReemplazar.SendMessage("SetBox", boxDelDronAMover);
+						}
+						SelectedGridDrone.SendMessage("SetBox", box);
+						objSeleccionado = -1;
+						SelectedGridDrone = null;			
+					}
 				}
-				labelGestos.text= "SWIPE " + swipeIn.ToString();
-			}*/
-			else
+			}
+			if(objSeleccionado != -1)
 			{
+				cruz.gameObject.transform.position= Input.touches[0].position;
+				cruz.SetActive(true);
+				grid.EnableFreeBoxes();
+			}
+			else{
 				cruz.SetActive(false);
+				grid.DisableBoxes();
 			}
 		}
 		else if(Input.GetMouseButtonUp(0)){
@@ -183,29 +189,32 @@ public class pickDrop : MonoBehaviour {
 			GameObject nuevoEnemigo = null;
 			if (type == 0) //placa
 			{
-				nuevoEnemigo= (GameObject)Instantiate(ShooterDronePrefab, box.transform.position, box.transform.rotation);
-				botonPlaca.GetComponent<BotonController>().Activacion();
-				
+				nuevoEnemigo= (GameObject)Instantiate(SolarDronePrefab, box.transform.position, box.transform.rotation);
 				nuevoEnemigo.SendMessage("SetBox", box);
+				botonPlaca.GetComponent<BotonController>().Activacion();
 			} 
 			else if (type == 1)	//botiquin
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(HealingDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonBotiquin.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 2) //espejo
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(MirrorDronePrefab, box.transform.position, box.transform.rotation);	
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonEspejo.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 3) //mina
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(MineDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonMina.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 4) //cañon
 			{
-				//aqui instanciar drone (como arriba)
+				nuevoEnemigo= (GameObject)Instantiate(CannonDronePrefab, box.transform.position, box.transform.rotation);
+				nuevoEnemigo.SendMessage("SetBox", box);
 				botonShooter.GetComponent<BotonController>().Activacion();
 			}
 

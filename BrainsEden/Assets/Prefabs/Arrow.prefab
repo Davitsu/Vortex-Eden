@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  flickerTime: .400000006
 --- !u!114 &11499794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 188926, guid: 92c8785b0fa74074aaeef390c2a5c585, type: 2}
   speed: 5000
-  shootDelay: 3
+  shootDelay: 2
 --- !u!212 &21295840
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -279,6 +280,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shootDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: flickerTime
+      value: .400000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
