@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eff6d6cc715fb7d45a1c2e1b28aa45f3
-timeCreated: 1435496379
+timeCreated: 1435497959
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -46,6 +46,7 @@ TextureImporter:
     21300078: vida_borde2
     21300080: vida_vida
     21300082: vida_contenedor
+    21300084: gameover
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -508,6 +509,16 @@ TextureImporter:
         y: 449
         width: 1
         height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gameover
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 202
+        width: 237
+        height: 29
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
