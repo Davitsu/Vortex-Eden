@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 				lastClickedPosition= Input.mousePosition;
 				
 				if(counter<=0){
-					Instantiate(playerBullet).transform.position=transform.position;
+					Instantiate(playerBullet).transform.position= new Vector3(transform.position.x+30.0f, transform.position.y-1, transform.position.z);
 					counter=1.0f/shootingSpeed;
 				}
 			}
@@ -66,6 +66,13 @@ public class PlayerController : MonoBehaviour {
 		#endif
 
 		counter-=Time.deltaTime;
+
+		if (lastClickedPosition.y > Screen.height - 50) {
+			lastClickedPosition.y = Screen.height - 50;
+		}
+		else if (lastClickedPosition.y < 80) {
+			lastClickedPosition.y = 80;
+		}
 
 		float diff = transform.position.y - Camera.main.ScreenToWorldPoint(lastClickedPosition).y;
 		if (diff < -moveSpeed*Time.deltaTime) {

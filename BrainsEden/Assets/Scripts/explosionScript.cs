@@ -4,28 +4,30 @@ using System.Collections;
 public class explosionScript : MonoBehaviour {
 	
 	public Sprite grafico;
-	public CircleCollider2D colision;
+	public float damage;
 	
 	public float radio;
 	public float velocidad;
-	
-	void Awake () {
-		//ajustes collider
-		colision.radius= 0f;
+	public float lifetime;
 
-		//ajustes sprite
-		//aqui
+
+	void Start () {
+		Camera.main.GetComponent<CameraController>().SetShake (5.0f);
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
-		//crecimiento y muerte
-		if(colision.radius <= radio)
+		lifetime -= Time.deltaTime;
+		if(lifetime <= 0)
 		{
-			colision.radius+= velocidad * Time.deltaTime;
+			Destroy(gameObject);
 		}
-		else{
-			Destroy(this.gameObject);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag == "Enemy"){
+			other.gameObject.SendMessage("Damage", damage);
 		}
 	}
 }

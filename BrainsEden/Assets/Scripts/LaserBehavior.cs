@@ -5,7 +5,7 @@ public class LaserBehavior : MonoBehaviour {
 
 	public GameObject bullet;
 	public float speed = 5000.0f;
-	public float shootDelay=3.0f;
+	public float shootDelay;
 	float counter=0.0f;
 	int lane;
 	Vector2 destiny;
@@ -14,7 +14,7 @@ public class LaserBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		destiny.x = 120;
+		destiny.x = 170;
 		grid=GameObject.FindGameObjectWithTag ("Grid").GetComponent<GridScript>();
 	}
 	
