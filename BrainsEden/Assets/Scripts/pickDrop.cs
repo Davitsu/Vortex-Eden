@@ -88,28 +88,6 @@ public class pickDrop : MonoBehaviour {
 					}
 				}
 			}
-			//gestual
-			/*else if(objSeleccionado== -1)
-			{
-				if(Input.touches[0].phase == TouchPhase.Began)
-				{
-					posIni= Input.touches[0].position;
-				}
-				else if(Input.touches[0].phase == TouchPhase.Moved || Input.touches[0].phase == TouchPhase.Stationary)
-				{
-					Vector2 posFin= Input.touches[0].position;
-					
-					if(posIni.x > posFin.x && Vector2.Distance(posIni, posFin) >= Screen.width / 5f )
-					{
-						swipeIn= true;
-					}
-				}
-				else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-				{
-					swipeIn= false;
-				}
-				labelGestos.text= "SWIPE " + swipeIn.ToString();
-			}*/
 			if(objSeleccionado != -1)
 			{
 				cruz.gameObject.transform.position= Input.touches[0].position;
@@ -211,37 +189,31 @@ public class pickDrop : MonoBehaviour {
 			if (type == 0) //placa
 			{
 				nuevoEnemigo= (GameObject)Instantiate(SolarDronePrefab, box.transform.position, box.transform.rotation);
-				botonPlaca.GetComponent<BotonController>().Activacion();
-				
 				nuevoEnemigo.SendMessage("SetBox", box);
+				botonPlaca.GetComponent<BotonController>().Activacion();
 			} 
 			else if (type == 1)	//botiquin
 			{
 				nuevoEnemigo= (GameObject)Instantiate(HealingDronePrefab, box.transform.position, box.transform.rotation);
-				
 				nuevoEnemigo.SendMessage("SetBox", box);
 				botonBotiquin.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 2) //espejo
 			{
-				nuevoEnemigo= (GameObject)Instantiate(MirrorDronePrefab, box.transform.position, box.transform.rotation);
-				
+				nuevoEnemigo= (GameObject)Instantiate(MirrorDronePrefab, box.transform.position, box.transform.rotation);	
 				nuevoEnemigo.SendMessage("SetBox", box);
 				botonEspejo.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 3) //mina
 			{
 				nuevoEnemigo= (GameObject)Instantiate(MineDronePrefab, box.transform.position, box.transform.rotation);
-				
 				nuevoEnemigo.SendMessage("SetBox", box);
 				botonMina.GetComponent<BotonController>().Activacion();
 			}
 			else if (type == 4) //cañon
 			{
 				nuevoEnemigo= (GameObject)Instantiate(CannonDronePrefab, box.transform.position, box.transform.rotation);
-				
 				nuevoEnemigo.SendMessage("SetBox", box);
-
 				botonShooter.GetComponent<BotonController>().Activacion();
 			}
 
