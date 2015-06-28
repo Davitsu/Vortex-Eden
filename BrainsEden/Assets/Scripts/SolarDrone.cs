@@ -50,16 +50,10 @@ public class SolarDrone : MonoBehaviour {
 				cuenta= temporizador;
 			}
 		}
-		
-		//control vida
-		if(datos.vida <= 0f)
-		{
-			datos.box.GetComponent<BoxScript>().taken= false;
-			Destroy(this.gameObject);
-		}
 	}
 	
 	void OnDestroy(){
+		GameObject.Find ("Pick&DropController").SendMessage ("CheckDestroyed", this.gameObject);
 		datos.box.GetComponent<BoxScript>().taken= false;
 		datos.box.GetComponent<BoxScript> ().dron = null;
 	}

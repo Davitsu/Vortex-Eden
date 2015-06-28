@@ -39,7 +39,7 @@ public class LaserBehavior : MonoBehaviour {
 				}
 			}
 		} else {
-			lane=Random.Range(0, 6);
+			lane=Random.Range(0, grid.lanes.Length);
 			if(grid.laneAvailable[lane]){
 				grid.laneAvailable[lane]=false;
 				destiny.y=grid.lanes[lane];
