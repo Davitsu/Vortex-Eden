@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2.Lerp(this.transform.position, target.transform.position, speed*Time.deltaTime);
+		//transform.position=Vector2.Lerp(this.transform.position, target.transform.position, speed*Time.deltaTime);
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

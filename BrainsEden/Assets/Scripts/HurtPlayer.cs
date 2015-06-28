@@ -21,6 +21,11 @@ public class HurtPlayer : MonoBehaviour {
 					SendMessage("FallOff");
 					Destroy(this);
 				}
+				else if((other.gameObject.name.Contains("MineDrone") && gameObject.name.Contains("ArrowBullet"))){
+					other.gameObject.SendMessage("Damage", 100);
+					Destroy(this);
+					Debug.Log("Boom");
+				}
 				else{
 				other.gameObject.SendMessage("Damage", damage);
 				Destroy(gameObject);
