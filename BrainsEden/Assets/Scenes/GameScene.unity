@@ -2744,7 +2744,7 @@ MonoBehaviour:
   cruz: {fileID: 1063586674}
   grid: {fileID: 76492706}
   marco: {fileID: 1040318174}
-  SolarDronePrefab: {fileID: 0}
+  SolarDronePrefab: {fileID: 188708, guid: 59b0609316e4a7e48919fd059e7f8598, type: 2}
   HealingDronePrefab: {fileID: 0}
   MirrorDronePrefab: {fileID: 188708, guid: f3c9a2fac65802e4082598a5a5f6e521, type: 2}
   MineDronePrefab: {fileID: 144178, guid: 3a7887a61555ebb43be9ed729e1ac2ee, type: 2}
