@@ -127,9 +127,6 @@ public class pickDrop : MonoBehaviour {
 			else if(position.x > Screen.width * 0.1f && objSeleccionado == -2){ //si pulsas caja de grid con un dron cogido de grid
 				GameObject box = ComprobarBox(position);
 				if(box != null){
-					grid.DisableBoxes();
-					cruz.SetActive(false);
-
 					if(box.GetComponent<BoxScript>().dron != null){
 						GameObject boxDelDronAMover = SelectedGridDrone.GetComponent<caracteristicaDrone>().box;
 						GameObject dronAReemplazar = box.GetComponent<BoxScript>().dron;
@@ -140,6 +137,10 @@ public class pickDrop : MonoBehaviour {
 					SelectedGridDrone.SendMessage("SetBox", box);
 					objSeleccionado = -1;
 					SelectedGridDrone = null;
+					
+					grid.DisableBoxes();
+					cruz.SetActive(false);
+
 				}
 				Debug.Log ("Pulsado con dron cogido de grid: "+objSeleccionado);
 			}
